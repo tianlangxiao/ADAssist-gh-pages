@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AD助手主页</title>
+</head>
+<body>
+<ul>
+    <li><a href="contents/1yiban.html">一般情况</a></li>
+    <li>健康情况
+        <ol>
+            <li><a href="contents/2renzhinengli.html">认知能力自评表</a></li>
+            <li><a href="contents/3pizibao.html">匹兹堡睡眠指数量表</a></li>
+            <li><a href="contents/4renzhibianhua.html">认知能力变化评估表(本人)</a></li>
+            <li><a href="contents/5renzhijiantui.html">老年人认知功能减退知情问卷</a></li>
+            <li><a href="contents/6renzhibianhuajia.html">认知功能变化评估(询问家人或照顾者)</a></li>
+        </ol>
+    </li>
+    <li>神经心理评估
+        <ol>
+            <li><a href="contents/7richang.html">日常生活能力表(ADL)</a></li>
+            <li><a href="contents/8jianmingjingshen.html">简易神经状态检查表(MMSE)</a></li>
+            <li><a href="contents/9mengtelier.html">蒙特利尔认知评估(MoCA-B)</a></li>
+            <li><a href="contents/10renzhiyu.html">认知域</a></li>
+            <li><a href="contents/11hanmierdun.html">汉密尔顿抑郁量表(HAMD)</a></li>
+            <li><a href="contents/12jingshen.html">神经精神科问卷(NPI)</a></li>
+        </ol>
+    </li>
+
+    <!--<h2>数据展示</h2>-->
+    <!--<li><a href="1yibanshow.html">一般情况</a></li>-->
+    <!--<li>健康情况-->
+        <!--<ol>-->
+            <!--<li><a href="2renzhinenglishow.html">认知能力自评表</a></li>-->
+            <!--<li><a href="3pizibaoshow.html">匹兹堡睡眠指数量表</a></li>-->
+            <!--<li><a href="4renzhibianhuashow.html">认知能力变化评估表(本人)</a></li>-->
+            <!--<li><a href="5renzhijiantuishow.html">老年人认知功能减退知情问卷</a></li>-->
+            <!--<li><a href="6renzhibianhuajiashow.html">认知功能变化评估(询问家人或照顾者)</a></li>-->
+        <!--</ol>-->
+    <!--</li>-->
+    <!--<li>神经心理评估-->
+        <!--<ol>-->
+            <!--<li><a href="7richangshow.html">日常生活能力表(ADL)</a></li>-->
+            <!--<li><a href="8jianmingjingshenshow.html">简易神经状态检查表(MMSE)</a></li>-->
+            <!--<li><a href="9mengtelier.html">蒙特利尔认知评估(MoCA-B)</a></li>-->
+            <!--<li><a href="10renzhiyu.html">认知域</a></li>-->
+            <!--<li><a href="11hanmierdunshow.html">汉密尔顿抑郁量表(HAMD)</a></li>-->
+            <!--<li><a href="12jingshenshow.html">神经精神科问卷(NPI)</a></li>-->
+        <!--</ol>-->
+    <!--</li>-->
+</ul>
+<!-- 全局js -->
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="http://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
+<script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.js"></script>
+
+
+<script type="text/javascript">
+    $(function () {
+        var param = getRequest();
+        var pid = param.pid;
+        $("ul a").each(function () {
+            var newLink = $(this).attr("href") + "?pid=" + pid; //获取当前标签的 href 属性
+            console.log("newLink", newLink);
+            $(this).attr("href", newLink); // 修改标签 href 的属性
+        })
+        console.log("zhuye", pid)
+
+    })
+</script>
+</body>
+</html>

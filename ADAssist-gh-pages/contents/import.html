@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>数据导入</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid text-center">
+<h2>导入数据</h2>
+
+<form class="m-3">
+    <div id="error-message" class="alert alert-warning alert-dismissible fade p-1 mb-1" role="alert">
+        <small>请选择要导入的数据文件</small>
+    </div>
+    <div class="input-group">
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="importFile"
+                   accept=".csv,.xls,.xlsx,text/csv,text/csv-schema,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+            <label id="importFileLable" class="custom-file-label" for="importFile" aria-describedby="选择文件" data-browse="选择">请选择文件</label>
+        </div>
+        <div class="input-group-append">
+            <button type="button" class="btn btn-primary input-group-text" id="uploadFile">上传</button>
+        </div>
+    </div>
+    <small id="importHelp" class="form-text text-muted">支持格式：.csv, .xls, .xlsx</small>
+</div>
+</form>
+</div>
+
+<script src="../js/common.js"></script>
+<script type="text/javascript">
+
+var did = $.cookie('uid');
+
+$('#importFile').on('change', function (e) {
+    if (e.target.files.length) {
+        $('#importFileLable').text(e.target.files[0].name)
+    } else {
+        $('#importFileLable').text('请选择文件')
+    }
+})
+
+$('#uploadFile').on('click', function (e) {
+    const fileEl = $('#importFile').get(0)
+    if (fileEl.files.length) {
+        console.log(fileEl.files[0])
+    } else {
+        $('#error-message').addClass('show')
+        $('#importFile').focus()
+        console.log('尚未选择文件')
+        setTimeout(() => {
+            $('#error-message').removeClass('show')
+        }, 3000)
+    }
+})
+
+</script>
+
+</body>
+</html>

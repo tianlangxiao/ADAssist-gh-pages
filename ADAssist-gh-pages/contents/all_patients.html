@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <!-- Google Chrome Frame也可以让IE用上Chrome的引擎: -->
+    <meta name="renderer" content="webkit">
+    <!--国产浏览器高速模式-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="AD助手"/>
+    <!-- 作者 -->
+    <meta name="revised" content="AD助手.v1, 2019/12/15"/>
+    <!-- 定义页面的最新版本 -->
+    <meta name="description" content="网站简介"/>
+    <!-- 网站简介 -->
+    <meta name="keywords" content="搜索关键字，以半角英文逗号隔开"/>
+    <title>AD助手</title>
+
+    <!-- 公共样式 开始 -->
+    <link rel="stylesheet" type="text/css" href="../css/base.css">
+    <link rel="stylesheet" type="text/css" href="../css/iconfont.css">
+    <script type="text/javascript" src="../framework/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../layui/css/layui.css">
+    <script type="text/javascript" src="../layui/layui.js"></script>
+    <!-- 滚动条插件 -->
+    <link rel="stylesheet" type="text/css" href="../css/jquery.mCustomScrollbar.css">
+    <script src="../framework/jquery-ui-1.10.4.min.js"></script>
+    <script src="../framework/jquery.mousewheel.min.js"></script>
+    <script src="../framework/jquery.mCustomScrollbar.min.js"></script>
+    <script src="../framework/cframe.js"></script><!-- 仅供所有子页面使用 -->
+    <!-- 公共样式 结束 -->
+
+</head>
+
+<body>
+<div style="text-align: right;" class="layui-form-pane">
+    <div class="layui-inline">
+        <label class="layui-form-label" style="height: 30px; line-height: 15px; ">搜索姓名：</label>
+        <div class="layui-input-inline">
+            <input id="search-value" type="text" placeholder="输入搜索内容" name="search"
+                   class="layui-input" style="height: 30px; line-height: 15px;"
+                   onkeypress="if(event.keyCode===13){searchName()}">
+        </div>
+        <button type="button" class="layui-btn layui-btn-sm layui-btn-primary" onclick="searchName()">
+            搜索
+        </button>
+    </div>
+</div>
+
+<table class="layui-table">
+    <thead>
+    <tr>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>ID</th>
+        <th>性别</th>
+        <th>年龄</th>
+        <th>录入数据</th>
+        <th>一般情况</th>
+    </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+</table>
+
+<!-- 全局js -->
+<script src="../js/jquery.min.js?v=2.1.4"></script>
+<script src="http://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/bootstrap.min.js?v=3.3.6"></script>
+<script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        getData();
+    })
+
+    function getData() {
+        var uid = $.cookie('uid');
+        console.log("http://par.ict.ac.cn:10000/3/users/patsofdoc/" + uid + "/1000");
+        $.ajax({
+            url: "http://par.ict.ac.cn:10000/3/users/patsofdoc/" + uid + "/1000",
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                var list = data.result;
+                if (list) {
+                    var html = "";
+                    for (var i = 0; i < list.length; i++) {
+                        item = list[i];
+                        console.log("user item", item);
+                        var sex;
+                        switch (item.sex) {
+                            case "F":
+                                sex = "男";
+                                break;
+                            case "M":
+                                sex = "女";
+                                break;
+                        }
+                        html += '<tr>' +
+                            '<td><a class="J_menuItem">' + (i + 1) + '</a></td>' +
+                            '<td><a class="J_menuItem">' + item.name + '</a></td>' +
+                            '<td><a class="J_menuItem">' + item.cnid + '</a></td>' +
+                            '<td><a class="J_menuItem">' + sex + '</a></td>' +
+                            '<td><a class="J_menuItem">' + item.bday + '</a></td>' +
+                            '<td><a class="layui-btn layui-btn-xs" href="scale_input.html?pid=' + item.pid + '&pname=' + item.name + '">' + "录入数据" + '</a></td> ' +
+                            '<td><a class="layui-btn layui-btn-xs" href="1yiban.html?pid=' + item.pid + '">' + "一般情况" + '</a></td> ' +
+                            '</tr>';
+                    }
+                    $("#tbody").html(html);
+                }
+            }
+        });
+    }
+
+    function searchName() {
+        let name = $("#search-value").val();
+        $("#tbody tr").each((idx, el) => {
+            if ($(el).find("td:nth-child(2)").text().includes(name)) {
+                $(el).show();
+            } else {
+                $(el).hide();
+            }
+        })
+    }
+
+</script>
+
+
+<tr>
+    <td>性别</td>
+    <td id="num2">6700</td>
+    <td>性别</td>
+    <td id="num3">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num4">6700</td>
+    <td>性别</td>
+    <td id="num5">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num6">6700</td>
+    <td>性别</td>
+    <td id="num7">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num8">6700</td>
+    <td>性别</td>
+    <td id="num9">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num10">6700</td>
+    <td>性别</td>
+    <td id="num11">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num12">6700</td>
+    <td>性别</td>
+    <td id="num13">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num14">6700</td>
+    <td>性别</td>
+    <td id="num15">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num16">6700</td>
+    <td>性别</td>
+    <td id="num17">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num18">6700</td>
+    <td>性别</td>
+    <td id="num19">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num20">6700</td>
+    <td>性别</td>
+    <td id="num21">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num22">6700</td>
+    <td>性别</td>
+    <td id="num23">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num24">6700</td>
+    <td>性别</td>
+    <td id="num25">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num26">6700</td>
+    <td>性别</td>
+    <td id="num27">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num28">6700</td>
+    <td>性别</td>
+    <td id="num29">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num30">6700</td>
+    <td>性别</td>
+    <td id="num31">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num32">6700</td>
+    <td>性别</td>
+    <td id="num33">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num34">6700</td>
+    <td>性别</td>
+    <td id="num35">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num36">6700</td>
+    <td>性别</td>
+    <td id="num37">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num38">6700</td>
+    <td>性别</td>
+    <td id="num39">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num40">6700</td>
+    <td>性别</td>
+    <td id="num41">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num42">6700</td>
+    <td>性别</td>
+    <td id="num43">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num44">6700</td>
+    <td>性别</td>
+    <td id="num45">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num46">6700</td>
+    <td>性别</td>
+    <td id="num47">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num48">6700</td>
+    <td>性别</td>
+    <td id="num49">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num50">6700</td>
+    <td>性别</td>
+    <td id="num51">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num52">6700</td>
+    <td>性别</td>
+    <td id="num53">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num54">6700</td>
+    <td>性别</td>
+    <td id="num55">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num56">6700</td>
+    <td>性别</td>
+    <td id="num57">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num58">6700</td>
+    <td>性别</td>
+    <td id="num59">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num60">6700</td>
+    <td>性别</td>
+    <td id="num61">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num62">6700</td>
+    <td>性别</td>
+    <td id="num63">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num64">6700</td>
+    <td>性别</td>
+    <td id="num65">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num66">6700</td>
+    <td>性别</td>
+    <td id="num67">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num68">6700</td>
+    <td>性别</td>
+    <td id="num69">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num70">6700</td>
+    <td>性别</td>
+    <td id="num71">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num72">6700</td>
+    <td>性别</td>
+    <td id="num73">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num74">6700</td>
+    <td>性别</td>
+    <td id="num75">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num76">6700</td>
+    <td>性别</td>
+    <td id="num77">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num78">6700</td>
+    <td>性别</td>
+    <td id="num79">6700</td>
+</tr>
+
+<tr>
+    <td>性别</td>
+    <td id="num80">6700</td>
+    <td>性别</td>
+    <td id="num81">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num82">6700</td>
+    <td>性别</td>
+    <td id="num83">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num84">6700</td>
+    <td>性别</td>
+    <td id="num85">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num86">6700</td>
+    <td>性别</td>
+    <td id="num87">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num88">6700</td>
+    <td>性别</td>
+    <td id="num89">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num90">6700</td>
+    <td>性别</td>
+    <td id="num91">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num92">6700</td>
+    <td>性别</td>
+    <td id="num93">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num94">6700</td>
+    <td>性别</td>
+    <td id="num95">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num96">6700</td>
+    <td>性别</td>
+    <td id="num97">6700</td>
+</tr>
+<tr>
+    <td>性别</td>
+    <td id="num98">6700</td>
+    <td>性别</td>
+    <td id="num99">6700</td>
+</tr>
+
+
+</body>
+</html>

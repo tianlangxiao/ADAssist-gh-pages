@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>认知能力他评表</title>
+    <link rel="favicon" href="../images/logo.png" />
+    <link rel="shortcut icon" href="../images/logo.png" />
+    <link rel="bookmark" href="../images/logo.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <style>
+        .btn-primary {
+            background-color: #4682B4;
+        }
+
+        .scale-done {
+            color: #ffc107;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container-fluid d-flex flex-column h-100 w-100 text-center pt-5">
+    <div class="w-50 mx-auto my-2">
+        <a role="button" id="ri7" class="btn btn-primary btn-lg w-100 font-weight-bold" href="7richang.html">
+            日常生活能力表(ADL)
+        </a>
+    </div>
+    <div class="w-50 mx-auto my-2">
+        <a role="button" id="jia8" class="btn btn-primary btn-lg w-100 font-weight-bold" href="8jianmingjingshen.html">
+            简易神经状态检查表(MMSE)
+        </a>
+    </div>
+    <div class="w-50 mx-auto my-2">
+        <a role="button" id="meng9" class="btn btn-primary btn-lg w-100 font-weight-bold" href="9mengtelier.html">
+            蒙特利尔认知评估(MoCA-B)
+        </a>
+    </div>
+    <div class="w-50 mx-auto my-2">
+        <a role="button" id="ren10" class="btn btn-primary btn-lg w-100 font-weight-bold" href="10renzhiyu.html">
+            认知域
+        </a>
+    </div>
+    <div class="w-50 mx-auto my-2">
+        <a role="button" id="cdr13" class="btn btn-primary btn-lg w-100 font-weight-bold" href="13cdr.html">
+            临床痴呆评定量表评分表（CDR）
+        </a>
+    </div>
+    <div class="w-50 mx-auto my-2">
+        <a role="button" id="han11" class="btn btn-primary btn-lg w-100 font-weight-bold" href="11hanmierdun.html">
+            汉密尔顿抑郁量表(HAMD)
+        </a>
+    </div>
+    <div class="w-50 mx-auto my-2">
+        <a role="button" id="jing12" class="btn btn-primary btn-lg w-100 font-weight-bold" href="12jingshen.html">
+            神经精神科问卷(NPI)
+        </a>
+    </div>
+</div>
+<div class="w-100 text-center">
+    <p>注：<span class="scale-done">黄色</span>字体表示今日已填写</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+<script src="http://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.js"></script>
+<script src="../js/common.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        var pid = getRequest().pid;
+        var ri7 = document.getElementById('ri7');
+        ri7.href = "7richang.html"+ "?pid=" + pid;
+
+        var jia8 = document.getElementById('jia8');
+        jia8.href = "8jianmingjingshen.html"+ "?pid=" + pid;
+
+        var meng9 = document.getElementById('meng9');
+        meng9.href = "9mengtelier.html"+ "?pid=" + pid;
+
+        var ren10 = document.getElementById('ren10');
+        ren10.href = "10renzhiyu.html"+ "?pid=" + pid;
+
+        var cdr13 = document.getElementById('cdr13');
+        cdr13.href = "13cdr.html"+ "?pid=" + pid;
+
+        var han11 = document.getElementById('han11');
+        han11.href = "11hanmierdun.html"+ "?pid=" + pid;
+
+        var jing12 = document.getElementById('jing12');
+        jing12.href = "12jingshen.html"+ "?pid=" + pid;
+
+        let types = {  // 量表类型与对应元素 ID
+            0: [7, 8, 9, 10, 11, 12],  // 本页允许类型
+            7: ri7,
+            8: jia8,
+            9: meng9,
+            10: ren10,
+            11: han11,
+            12: jing12,
+            13: cdr13,
+        }
+
+        $.ajax({
+            url: "http://par.ict.ac.cn:10000/3/survey/list/find",
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify({
+                "did": $.cookie("uid"),
+                "pid": pid,
+            }),
+            async: false,
+            success: function (data) {
+                if (data.status == 0) {
+                    let allScale = data.result.filter(item => item.finish == 1 && types[0].includes(item.type));
+                    let timeDict = allScale.reduce((lastTime, scale) => {
+                        let last = lastTime[scale.type],
+                            thisScaleTime = new Date(scale.date);
+                        if (last === undefined || last < thisScaleTime) {
+                            lastTime[scale.type] = thisScaleTime;
+                        }
+                        return lastTime;
+                    }, {});
+                    console.debug(timeDict);
+
+                    let checkTime = new Date();
+                    checkTime.setDate(checkTime.getDate() - 1);  // 检测一天之内填写的量表
+                    for (let i in timeDict) {
+                        if (timeDict[i] > checkTime) {
+                            types[i].classList.add('scale-done');
+                        }
+                    }
+                } else {
+                    console.error(data);
+                }
+            },
+            fail: function (res) {
+                console.error(res);
+            }
+        });
+    })
+</script>
+
+</body>
+</html>

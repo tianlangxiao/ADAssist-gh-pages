@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日常生活能量表show</title>
+</head>
+<body>
+<h2 id="pname"></h2>
+<ol>
+    <li><p>吃饭</p>
+
+        <p class="result"></p>
+
+    </li>
+    <li><p>穿脱衣服</p>
+        <p class="result"></p>
+
+    </li>
+    <li><p>洗漱</p>
+
+        <p class="result"></p>
+
+    </li>
+    <li><p>上下床,坐下或站起</p>
+        <p class="result"></p>
+
+    </li>
+    <li><p>室内走动</p>
+
+        <p class="result"></p>
+
+    </li>
+    <li><p>上厕所</p>
+        <p class="result"></p>
+
+    </li>
+    <li><p>大小便控制</p>
+        <p class="result"></p>
+    </li>
+    <li><p>洗澡</p>
+        <p class="result"></p>
+
+    </li>
+    <li><p>自己搭乘公共汽车(知道乘哪一路车,并能独自去)</p>
+        <p class="result"></p>
+
+    </li>
+    <li><p>在住地附近活动</p>
+        <p class="result"></p>
+
+    </li>
+    <li><p>自己做饭(包括洗切菜、生活、炒菜)</p>
+
+        <p class="result"></p>
+
+    </li>
+    <li><p>吃药(按时并正确服药)</p>
+
+        <p class="result"></p>
+
+    </li>
+    <li><p>一般轻家务(扫地、擦桌)</p>
+        <p class="result"></p>
+
+    </li>
+    <li><p>复杂家务(擦地/擦窗、搬东西等)</p>
+        <p class="result"></p>
+    </li>
+    <li><p>洗自己的衣服</p>
+
+        <p class="result"></p>
+    </li>
+    <li><p>剪脚趾甲</p>
+        <p class="result"></p>
+
+    </li>
+    <li><p>购物</p>
+
+        <p class="result"></p>
+
+    </li>
+    <li><p>使用电话(必须会拨号)</p>
+        <p class="result"></p>
+
+    </li>
+    <li><p>管理个人钱财(买东西、找零以及算钱等)</p>
+
+        <p class="result"></p>
+
+    </li>
+    <li><p>独自在家(能独自在家呆一天)</p>
+        <p class="result"></p>
+
+    </li>
+</ol>
+
+
+<!-- 全局js -->
+<script src="../js/jquery.min.js?v=2.1.4"></script>
+<script src="http://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/bootstrap.min.js?v=3.3.6"></script>
+<script type="text/javascript">
+    $(function () {
+        getData()
+    })
+
+    function getData() {
+        var pn = $.cookie('pname');
+        $("#pname").text(pn);
+
+        var param = getRequest();
+        var pid = param.pid;
+        var count=param.count;
+        $.ajax({
+            url: "http://par.ict.ac.cn:10000/3/survey/" + pid + "/7",
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                if (data.status == 0) {
+                    var list = data.result;
+                    var result = JSON.parse(list[count].data).paramMap;
+                    var resultArr = Object.values(result);
+                    for (var i in resultArr) {
+                        $(".result").eq(i).html(resultArr[i])
+                    }
+                } else {
+                    alert(data.reason);
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

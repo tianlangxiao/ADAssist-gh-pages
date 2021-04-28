@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>临床痴呆评定量表评分表(CDR)</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link href="../css/forScale.css" rel="stylesheet">
+    <link href="../css/scale_style.css" rel="stylesheet">
+</head>
+<body>
+<h2 id="pname"></h2>
+<form id="form1" class="timu">
+    <p>填写时间:</p>
+    <input type="date" id="date" name="date">
+
+    <ol>
+        <li>
+            <p>记忆力</p>
+            <input type="radio" name="cdr1"  value="0">健康=0；无记忆力缺损或只有轻微不恒定的健忘；<br>
+            <input type="radio" name="cdr1" value="0.5">可疑痴呆=0.5；轻微、持续的健忘；对事情能部分回忆：“良性”健忘；<br>
+            <input type="radio" name="cdr1" value="1">轻度痴呆=1 ；中度记忆缺损；对近事遗忘突出；缺损对日常生活活动有妨碍；<br>
+            <input type="radio" name="cdr1" value="2">中度痴呆=2 ；严重记忆缺损；仅能记着过去非常熟悉的事情；对新发生的事情则很快遗忘；<br>
+            <input type="radio" name="cdr1" value="3">重度痴呆=3 ；严重记忆力丧失；仅存片断的记忆；<br>
+        </li>
+        <li>
+            <p>定向力</p>
+            <input type="radio" name="cdr2"  value="0">健康=0 ；完全正常；<br>
+            <input type="radio" name="cdr2" value="0.5">可疑痴呆=0.5；除在时间关系定向上有轻微困难外，定向力完全正常；<br>
+            <input type="radio" name="cdr2" value="1">轻度痴呆=1；在时间关系定向上有中度困难；对检查场所能作出定向；对其他的地理位置可能有定向；<br>
+            <input type="radio" name="cdr2" value="2">中度痴呆=2 ；在时间关系上严重困难，通常不能对时间作出定向；常有地点失定向；<br>
+            <input type="radio" name="cdr2" value="3">重度痴呆=3 ；仅有人物定向；<br>
+
+        </li>
+        <li>
+            <p>判断和解决问题的能力</p>
+            <input type="radio" name="cdr3"  value="0">健康=0 ；能很好地解决日常、商业和经济问题，能对过去的行为和业绩作出良
+            好的判断；<br>
+            <input type="radio" name="cdr3" value="0.5">可疑痴呆=0.5；仅在解决问题、辨别事物间的相似点和差异点方面有轻微的损害 ；<br>
+            <input type="radio" name="cdr3" value="1">轻度痴呆=1；在处理问题和判断问题上有中度困难；对社会和社会交往的判断力通常保存；<br>
+            <input type="radio" name="cdr3" value="2">中度痴呆=2 ；在处理问题、辨别事物的相似点和差异点方面有严重损害；对社会和社会交往的判断力通常有损害 ；<br>
+            <input type="radio" name="cdr3" value="3">重度痴呆=3 ；不能作出判断，或不能解决问题；<br>
+
+        </li>
+        <li>
+            <p>社会事物</p>
+            <input type="radio" name="cdr4"  value="0">健康=0；在工作、购物、一般事务、经济事务、帮助他人和与社会团体社交方面，具有通常水平的独立活动能力；<br>
+            <input type="radio" name="cdr4" value="0.5">可疑痴呆=0.5；在这些活动方面有损害的话，仅是可疑的或轻微的损害；<br>
+            <input type="radio" name="cdr4" value="1">轻度痴呆=1；虽然仍可以从事部分活动，但不能独立进行这些活动；在不经意的检查中看起来表现正常；<br>
+            <input type="radio" name="cdr4" value="2">中度痴呆=2 ；很明显地不能独立进行室外活动；但看起来能够参加家庭以外的活动；<br>
+            <input type="radio" name="cdr4" value="3">重度痴呆=3 ；不能独立进行室外活动，也不可能参加家庭以外的活动；<br>
+
+        </li>
+        <li>
+            <p>家庭生活业余爱好</p>
+            <input type="radio" name="cdr5"  value="0">健康=0；家庭生活，业余爱好、智力均保持良好 ；<br>
+            <input type="radio" name="cdr5" value="0.5">可疑痴呆=0.5；家庭生活，业余爱好、智力活动仅有轻微的损害；<br>
+            <input type="radio" name="cdr5" value="1">轻度痴呆=1；家庭生活有轻度而肯定的损害，较困难的家务事被放弃；较复杂的业余爱好和活动被放弃 ；<br>
+            <input type="radio" name="cdr5" value="2">中度痴呆=2 ；仅能做简单的家务事；兴趣减少且非常有限，做的也不好；<br>
+            <input type="radio" name="cdr5" value="3">重度痴呆=3 ；在自己卧室多，不能进行有意义的家庭活动 ；<br>
+
+        </li>
+        <li>
+            <p>个人照料</p>
+            <input type="radio" name="cdr6"  value="0">健康=0；能独立生活；<br>
+            <input type="radio" name="cdr6" value="0.5">可疑痴呆=0.5；完全自理；<br>
+            <input type="radio" name="cdr6" value="1">轻度痴呆=1 ；需要监督；<br>
+            <input type="radio" name="cdr6" value="2">中度痴呆=2；在穿衣、个人卫 生以及保持个人仪表方面需要帮助 ；<br>
+            <input type="radio" name="cdr6" value="3">重度痴呆=3 ；个人照料需要更多帮助；通常不能控制大小便；<br>
+
+        </li>
+        <li>
+            <p>综合结果</p>
+            <input type="radio" name="cdr7"  value="0">健康=0；<br>
+            <input type="radio" name="cdr7" value="0.5">可疑痴呆=0.5；<br>
+            <input type="radio" name="cdr7" value="1">轻度痴呆=1 ；<br>
+            <input type="radio" name="cdr7" value="2">中度痴呆=2；<br>
+            <input type="radio" name="cdr7" value="3">重度痴呆=3 ；<br>
+
+        </li>
+
+    </ol>
+    <button id="formSubmit" type="submit">提交</button>
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/scale_style.js"></script>
+
+<script type="text/javascript">
+
+    var formType = 13;
+    var tid = getRequest().tid;
+    var pid = getRequest().pid;
+
+    $(function () {
+        var pn = $.cookie('pname');
+        $("#pname").text(pn);
+
+        let formID = "#form1";
+        let autoUploadTime = 20 * 1000;
+
+        let init = () => {
+            initData(tid, pid, formType, formID);
+
+            window.setInterval(function () {
+                // console.info("数据次数:")
+                initForm(tid, pid, formType, formID);
+            }, autoUploadTime);
+        }
+
+        if (pid) {
+            getUnfinished(pid, formType, (lastTid) => {
+                if (lastTid) {
+                    tid = lastTid;
+                }
+            })
+        }
+
+        if (tid) {
+            getData(tid, formType, formID, (data) => {
+                console.debug(data);
+                pid = data.pid;
+                init();
+            });
+        } else {
+            getId(pid, formType, formID, (newTid) => {
+                console.debug('Get new tid: ' + newTid);
+                tid = newTid
+                init();
+            });
+        };
+    });
+
+</script>
+</body>
+</html>

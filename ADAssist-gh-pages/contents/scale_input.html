@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <!-- Google Chrome Frame也可以让IE用上Chrome的引擎: -->
+    <meta name="renderer" content="webkit">
+    <!--国产浏览器高速模式-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="AD助手" />
+    <!-- 作者 -->
+    <meta name="revised" content="AD助手.v1, 2019/12/15" />
+    <!-- 定义页面的最新版本 -->
+    <meta name="description" content="网站简介" />
+    <!-- 网站简介 -->
+    <meta name="keywords" content="搜索关键字，以半角英文逗号隔开" />
+    <title>AD助手</title>
+
+    <!-- 公共样式 开始 -->
+    <link rel="stylesheet" type="text/css" href="../css/base.css">
+    <link rel="stylesheet" type="text/css" href="../css/iconfont.css">
+    <script type="text/javascript" src="../framework/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../layui/css/layui.css">
+    <script type="text/javascript" src="../layui/layui.js"></script>
+    <!-- 滚动条插件 -->
+    <link rel="stylesheet" type="text/css" href="../css/jquery.mCustomScrollbar.css">
+    <script src="../framework/jquery-ui-1.10.4.min.js"></script>
+    <script src="../framework/jquery.mousewheel.min.js"></script>
+    <script src="../framework/jquery.mCustomScrollbar.min.js"></script>
+    <script src="../framework/cframe.js"></script><!-- 仅供所有子页面使用 -->
+    <!-- 公共样式 结束 -->
+    <style>
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 30px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 15px;
+            border: 5pt solid #0a6aa1;
+        }
+    </style>
+</head>
+<body>
+<div style="text-align:center; height: 60%; width: 100%; position: absolute; ">
+    <div style="height: 30%; width: 100%;"></div>
+    <div style="height: 40%; width: 100%;">
+        <button class="button" id="scale_self_function">
+            <a id="self" href="selflist.html">认知能力自评表</a>
+        </button>
+    </div>
+    <div style="height: 40%; width: 100%;">
+        <button class="button" style="background: #40AFFE" id="scale_other_function">
+            <a id="other" href="otherlist.html">认知能力他评表</a>
+        </button>
+    </div>
+</div>
+</body>
+<!-- 全局js -->
+<script src="../js/jquery.min.js?v=2.1.4"></script>
+<script src="http://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/bootstrap.min.js?v=3.3.6"></script>
+<script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.js"></script>
+
+<script type="text/javascript">
+
+//    $(function () {
+//        var pname=param.pname;
+//        $.cookie("pname", pname);
+//        console.info("用户", pname);
+//    }
+    $(document).ready(function() {
+        var param = getRequest();
+        var pname=param.pname;
+        $.cookie("pname",pname);
+        var pid = param.pid;
+        var self = document.getElementById('self');
+        self.href = "selflist.html"+ "?pid=" + pid;
+        var other = document.getElementById('other');
+        other.href = "otherlist.html"+ "?pid=" + pid;
+
+    })
+</script>
+</html>

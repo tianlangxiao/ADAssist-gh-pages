@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>认知域检查评分表</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link href="../css/forScale.css" rel="stylesheet">
+    <link href="../css/scale_style.css" rel="stylesheet">
+</head>
+<body>
+<h2 id="pname"></h2>
+<div class="link-label-pad">
+    <a class="link-label" id="link-label-1" href="#test1">听觉词语测验</a>
+    <a class="link-label" id="link-label-2" href="#test2">Stroop test 测试</a>
+    <a class="link-label" id="link-label-3" href="#test3">符号数字转换测验(SDMT)</a>
+    <a class="link-label" id="link-label-4" href="#test4">Rey-0 图片测试</a>
+    <a class="link-label" id="link-label-5" href="#test5">连线测试</a>
+    <a class="link-label" id="link-label-6" href="#test6">数字广度</a>
+    <a class="link-label" id="link-label-7" href="#test7">Boston 命名测试</a>
+    <a class="link-label" id="link-label-8" href="#test8">词语流畅性</a>
+    <a class="link-label" id="link-label-9" href="#test9">画钟测试</a>
+    <a class="link-label" id="link-label-10" href="#test10">逻辑记忆</a>
+    <a class="link-label" id="link-label-11" href="#test11">相似性测验</a>
+</div>
+<form id="form1" class="timu">
+    <p>填写时间:</p>
+    <input type="date" id="date" name="date">
+
+    <ol>
+        <h2 id="test1">听觉词语测验</h2>
+        <div class="d-flex flex-wrap justify-content-center justify-content-md-around">
+            <span class="m-1 word-border">大衣</span>
+            <span class="m-1 word-border">司机</span>
+            <span class="m-1 word-border">海棠</span>
+            <span class="m-1 word-border">木工</span>
+            <span class="m-1 word-border">长裤</span>
+            <span class="m-1 word-border">百合</span>
+            <span class="m-1 word-border">头巾</span>
+            <span class="m-1 word-border">腊梅</span>
+            <span class="m-1 word-border">士兵</span>
+            <span class="m-1 word-border">玉兰</span>
+            <span class="m-1 word-border">律师</span>
+            <span class="m-1 word-border">手套</span>
+        </div>
+        <li>
+            <div class="d-inline-flex flex-wrap">
+                <div class="d-inline">N1正确回忆个数 <input type="number" name="avlt11"></div>
+                <div class="d-inline">N1插入错误个数 <input type="number" name="avlt12"></div>
+                <div class="d-inline">N1插入错误内容 <input type="text" name="avlt13"></div>
+            </div>
+        </li>
+        <li>
+            <div class="d-inline-flex flex-wrap">
+                <div class="d-inline">N2正确回忆个数 <input type="number" name="avlt21"></div>
+                <div class="d-inline">N2插入错误个数 <input type="number" name="avlt22"></div>
+                <div class="d-inline">N2插入错误内容 <input type="text" name="avlt23"></div>
+            </div>
+        </li>
+        <li>
+            <div class="d-inline-flex flex-wrap">
+                <div class="d-inline">N3正确回忆个数 <input type="number" name="avlt31"></div>
+                <div class="d-inline">N3插入错误个数 <input type="number" name="avlt32"></div>
+                <div class="d-inline">N3插入错误内容 <input type="text" name="avlt33"></div>
+            </div>
+        </li>
+        <span id="id_S10">00</span><input id="start10" type="button" value="5分钟计时开始">
+        <li>
+            <div class="d-inline-flex flex-wrap">
+            <div class="d-inline">N4正确回忆个数 <input type="number" name="avlt41"></div>
+            <div class="d-inline">N4插入错误个数 <input type="number" name="avlt42"></div>
+            <div class="d-inline">N4插入错误内容 <input type="text" name="avlt43"></div>
+            </div>
+        </li>
+        <span id="id_S11">00</span><input id="start11" type="button" value="20分钟计时开始">
+        <li>
+            <div class="d-inline-flex flex-wrap">
+            <div class="d-inline">N5正确回忆个数 <input type="number" name="avlt51"></div>
+            <div class="d-inline">N5插入错误个数 <input type="number" name="avlt52"></div>
+            <div class="d-inline">N5插入错误内容 <input type="text" name="avlt53"></div>
+            </div>
+        </li>
+        <h5>线索回忆</h5>
+        <div class="d-flex flex-wrap justify-content-center justify-content-md-around">
+            <span class="m-1">花朵类：腊梅、海棠、玉兰、百合</span>
+            <span class="m-1">职业类：律师、司机、士兵、木工</span>
+            <span class="m-1">服饰类：长裤、手套、头巾、大衣</span>
+        </div>
+        <li>
+            <div class="d-inline-flex flex-wrap">
+                <div class="d-inline">N6花朵正确回忆个数 <input type="number" name="avlt611"></div>
+                <div class="d-inline">N6花朵插入错误个数 <input type="number" name="avlt612"></div>
+                <div class="d-inline">N6花朵插入错误内容 <input type="text" name="avlt613"></div>
+            </div>
+            <div class="d-inline-flex flex-wrap">
+                <div class="d-inline">N6职业正确回忆个数 <input type="number" name="avlt621"></div>
+                <div class="d-inline">N6职业插入错误个数 <input type="number" name="avlt622"></div>
+                <div class="d-inline">N6职业插入错误内容 <input type="text" name="avlt623"></div>
+            </div>
+            <div class="d-inline-flex flex-wrap">
+                <div class="d-inline">N6服饰正确回忆个数 <input type="number" name="avlt631"></div>
+                <div class="d-inline">N6服饰插入错误个数 <input type="number" name="avlt632"></div>
+                <div class="d-inline">N6服饰插入错误内容 <input type="text" name="avlt633"></div>
+            </div>
+        </li>
+        <li>
+            <div class="d-inline-flex flex-wrap">
+                <div class="d-inline">N6正确回忆总个数 <input type="number" name="avlt711"></div>
+                <div class="d-inline">N6插入错误总个数 <input type="number" name="avlt712"></div>
+            </div>
+        </li>
+        <li>
+            <span>再认短语</span>
+            <div class="row py-2">
+                <span class="black-border col-3 col-sm-2 col-lg-1">R士兵</span><span class="black-border col-3 col-sm-2 col-lg-1">纽扣</span>
+                <span class="black-border col-3 col-sm-2 col-lg-1">R百合</span><span class="black-border col-3 col-sm-2 col-lg-1">西装</span>
+                <span class="black-border col-3 col-sm-2 col-lg-1">耳环</span><span class="black-border col-3 col-sm-2 col-lg-1">R玉兰</span>
+                <span class="black-border col-3 col-sm-2 col-lg-1">主任</span><span class="black-border col-3 col-sm-2 col-lg-1">荷花</span>
+                <span class="black-border col-3 col-sm-2 col-lg-1">R头巾</span><span class="black-border col-3 col-sm-2 col-lg-1">R司机</span>
+                <span class="black-border col-3 col-sm-2 col-lg-1">皮鞋</span><span class="black-border col-3 col-sm-2 col-lg-1">玉米</span>
+                <span class="black-border col-3 col-sm-2 col-lg-1">R长裤</span><span class="black-border col-3 col-sm-2 col-lg-1">R手套</span>
+                <span class="black-border col-3 col-sm-2 col-lg-1">军人</span><span class="black-border col-3 col-sm-2 col-lg-1">R海棠</span>
+                <span class="black-border col-3 col-sm-2 col-lg-1">杜鹃</span><span class="black-border col-3 col-sm-2 col-lg-1">R木工</span>
+                <span class="black-border col-3 col-sm-2 col-lg-1">牡丹</span><span class="black-border col-3 col-sm-2 col-lg-1">R大衣</span>
+                <span class="black-border col-3 col-sm-2 col-lg-1">衬衫</span><span class="black-border col-3 col-sm-2 col-lg-1">R律师</span>
+                <span class="black-border col-3 col-sm-2 col-lg-1">校长</span><span class="black-border col-3 col-sm-2 col-lg-1">R腊梅</span>
+            </div>
+            <div class="d-inline">再认正确个数 <input type="number" name="avlt811"></div>
+        </li>
+
+        <h2 id="test2">Stroop test 测试</h2>
+        <p>指导语：“从左到右，请你尽量快而正确地读出一下汉字。”</p>
+        <li>
+            <p>卡片A:</p>
+            <img src="../img/kaa.png"><br>
+            <div class="row align-items-end">
+                <div class="col-12 col-sm-6">
+                    测试所用时间:
+                    <span id="id_S">00</span>
+                    <input id="start" type="button" value="开始">
+                    <input id="stop" type="button" value="停止">
+                    <input type="number" class="w-20" name="stroop1">
+                </div>
+                <div class="col-12 col-sm-6">
+                    正确阅读个数:
+                    <input id="s" type="number" class="w-20" name="stroop11" />
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>卡片B:</p>
+            <!-- <img src="../img/kab.png"><br> -->
+            <img src="../img/stroop-test-card-b.png"><br>
+            <div class="row align-items-end">
+                <div class="col-12 col-sm-6">
+                    测试所用时间:<span id="id_S1">00</span>
+                    <input id="start1" type="button" value="开始">
+                    <input id="stop1" type="button" value="停止">
+                    <input id="s1" type="number" class="w-20" name="stroop2">
+                </div>
+                <div class="col-12 col-sm-6">
+                    正确阅读个数:<input type="number" class="w-20" name="stroop21" />
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>卡片C:</p>
+            <!-- <img src="../img/kac.png"><br> -->
+            <img src="../img/stroop-test-card-c.png"><br>
+            <div class="row align-items-end">
+                <div class="col-12 col-sm-6">
+                    测试所用时间:<span id="id_S2">00</span>
+                    <input id="start2" type="button" value="开始">
+                    <input id="stop2" type="button" value="停止">
+                    <input id="s2" type="number" class="w-20" name="stroop3">
+                </div>
+                <div class="col-12 col-sm-6">
+                    正确阅读个数:<input type="number" class="w-20" name="stroop31" />
+                </div>
+            </div>
+        </li>
+
+        <h2 id="test3">符号数字转换测验(SDMT)</h2>
+        <span id="id_S12">00</span><input id="start12" type="button" value="90秒计时开始">
+        <li>
+            <div class="row align-items-end">
+            <div class="col-12 col-md-4">正确填写个数:<input type="number" class="w-20" name="sdmt1"></div>
+            <div class="col-12 col-md-4">填写错误个数:<input type="number" class="w-20" name="sdmt2"></div>
+            <div class="col-12 col-md-4">条格提醒次数:<input type="number" class="w-20" name="sdmt3"></div>
+            </div>
+        </li>
+        <h2 id="test4">Rey-0 图片测试</h2>
+        <img src="../img/rey0.png"/><br>
+        <div class="row align-items-end">
+        <li class="col-12 col-sm-6">
+            <p>模仿耗时</p>
+            <span id="id_S3">00</span>
+            <input id="start3" type="button" value="开始">
+
+            <input id="stop3" type="button" value="停止">
+            <input id="s3" type="text" class="w-20" name="rey1time">
+        </li>
+        <li class="col-12 col-sm-6">
+            <p>模仿得分</p>
+            <input type="text" class="radio_type w-20" name="rey1">
+        </li>
+        <li class="col-12 col-sm-6">
+            <p>回忆耗时</p>
+            <span id="id_S4">00</span>
+            <input id="start4" type="button" value="开始">
+
+            <input id="stop4" type="button" value="停止">
+            <input id="s4" type="text" class="w-20" name="rey2time">
+        </li>
+        <li class="col-12 col-sm-6">
+            <p>回忆得分</p>
+            <input type="text" class="w-20" name="rey2">
+        </li>
+        </div>
+        <h2 id="test5">连线测试</h2>
+        <li>
+            <p>TMT-A练习:</p>
+            <img width="300" height="400" src="../img/tmta.jpg" /><br>
+            <div class="row align-items-end">
+                <div class="col-12 col-md-4">
+                    耗时:<span id="id_S5">00</span>
+                    <input id="start5" type="button" value="开始">
+                    <input id="stop5" type="button" value="停止">
+                    <input id="s5" type="text" class="w-20" name="tmt1">
+                </div>
+                <div class="col-12 col-md-4">
+                    错误链接提醒次数:<input type="text" class="w-20" name="tmt11">
+                </div>
+                <div class="col-12 col-md-4">
+                    拾笔提醒次数<input type="text" class="w-20" name="tmt12">
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>TMT-A测试:</p>
+            <img width="300" height="400" src="../img/tmtatest.jpg" /><br>
+            <div class="row align-items-end">
+                <div class="col-12 col-md-4">
+                    耗时:<span id="id_S6">00</span>
+                    <input id="start6" type="button" value="开始">
+                    <input id="stop6" type="button" value="停止">
+                    <input id="s6" type="text" class="w-20" name="tmt1">
+                </div>
+                <div class="col-12 col-md-4">
+                    错误链接提醒次数:<input type="text" class="w-20" name="tmt11">
+                </div>
+                <div class="col-12 col-md-4">
+                    拾笔提醒次数<input type="text" class="w-20" name="tmt12">
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>TMT-B练习:</p>
+            <img width="300" height="400" src="../img/tmtb.jpg" /><br>
+            <div class="row align-items-end">
+                <div class="col-12 col-md-4">
+                    耗时:<span id="id_S7">00</span>
+                    <input id="start7" type="button" value="开始">
+                    <input id="stop7" type="button" value="停止">
+                    <input id="s7" type="text" class="w-20" name="tmt1">
+                </div>
+                <div class="col-12 col-md-4">
+                    错误链接提醒次数:<input type="text" class="w-20" name="tmt11">
+                </div>
+                <div class="col-12 col-md-4">
+                    拾笔提醒次数<input type="text" class="w-20" name="tmt12">
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>TMT-B测试:</p>
+            <img width="300" height="400" src="../img/tmtbtest.jpg" /><br>
+            <div class="row align-items-end">
+                <div class="col-12 col-md-4">
+                    耗时:<span id="id_S8">00</span>
+                    <input id="start8" type="button" value="开始">
+                    <input id="stop8" type="button" value="停止">
+                    <input id="s8" type="text" class="w-20" name="tmt1">
+                </div>
+                <div class="col-12 col-md-4">
+                    错误链接提醒次数:<input type="text" class="w-20" name="tmt11">
+                </div>
+                <div class="col-12 col-md-4">
+                    拾笔提醒次数<input type="text" class="w-20" name="tmt12">
+                </div>
+            </div>
+        </li>
+
+        <h2 id="test6">数字广度</h2>
+        <p>
+            指导语：“我说一些数目，您仔细听，当我说完时，您就跟着照样背出来。（以每秒一个数字的速度匀速读出）”
+            <span class="d-flex">
+            <img src="../img/数字广度-顺背.png" class="w-50">
+            <img src="../img/数字广度-倒背.png" class="w-50">
+            </span>
+        </p>
+        <div class="row align-items-end">
+        <li class="col-12 col-sm-4">
+            <p>顺背</p>
+            <input type="text" class="w-20" name="digitspan1">
+        </li>
+        <li class="col-12 col-sm-4">
+            <p>倒背</p>
+            <input type="text" class="w-20" name="digitspan2">
+        </li>
+        <li class="col-12 col-sm-4">
+            <p>总分</p>
+            <input type="text" class="w-20" name="digitspan3">
+        </li>
+        </div>
+
+        <h2 id="test7">Boston命名测试</h2>
+        <p>指导语：“我现在给你看一些图片，请告诉我这些图片是什么”。不做提示回答和辨认。</p>
+        <div class="d-flex flex-wrap justify-content-center justify-content-md-around">
+        <li class="flex-grow-1">
+            <p>图1（树）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston1" value="1">对
+                    <input class="radio_type" type="radio" name="boston1" value="0">错<br>
+            回答内容:<input type="text" name="boston11">
+        </li>
+        <li class="flex-grow-1">
+            <p>图2（铅笔）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston2" value="1">对
+                    <input class="radio_type" type="radio" name="boston2" value="0">错<br>
+            回答内容:<input type="text" name="boston21">
+        </li>
+        <li class="flex-grow-1">
+            <p>图3（剪刀）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston3" value="1">对
+                    <input class="radio_type" type="radio" name="boston3" value="0">错<br>
+            回答内容:<input type="text" name="boston31">
+        </li>
+        <li class="flex-grow-1">
+            <p>图4（花）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston4" value="1">对
+                    <input class="radio_type" type="radio" name="boston4" value="0">错<br>
+            回答内容:<input type="text" name="boston41">
+        </li>
+        <li class="flex-grow-1">
+            <p>图5（锯子）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston5" value="1">对
+                    <input class="radio_type" type="radio" name="boston5" value="0">错<br>
+            回答内容:<input type="text" name="boston51">
+        </li>
+        <li class="flex-grow-1">
+            <p>图6（扫把）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston6" value="1">对
+                    <input class="radio_type" type="radio" name="boston6" value="0">错<br>
+            回答内容:<input type="text" name="boston61">
+        </li>
+        <li class="flex-grow-1">
+            <p>图7（冬菇）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston7" value="1">对
+                    <input class="radio_type" type="radio" name="boston7" value="0">错<br>
+            回答内容:<input type="text" name="boston71">
+        </li>
+        <li class="flex-grow-1">
+            <p>图8（衣架）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston8" value="1">对
+                    <input class="radio_type" type="radio" name="boston8" value="0">错<br>
+            回答内容:<input type="text" name="boston81">
+        </li>
+        <li class="flex-grow-1">
+            <p>图9（轮椅）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston9" value="1">对
+                    <input class="radio_type" type="radio" name="boston9" value="0">错<br>
+            回答内容:<input type="text" name="boston91">
+        </li>
+        <li class="flex-grow-1">
+            <p>图10（骆驼）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston10" value="1">对
+                    <input class="radio_type" type="radio" name="boston10" value="0">错<br>
+            回答内容:<input type="text" name="boston101">
+        </li>
+        <li class="flex-grow-1">
+            <p>图11（羽毛球拍）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston11" value="1">对
+                    <input class="radio_type" type="radio" name="boston11" value="0">错<br>
+            回答内容:<input type="text" name="boston111">
+        </li>
+        <li class="flex-grow-1">
+            <p>图12（蜗牛）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston12" value="1">对
+                    <input class="radio_type" type="radio" name="boston12" value="0">错<br>
+            回答内容:<input type="text" name="boston121">
+        </li>
+        <li class="flex-grow-1">
+            <p>图13（海马）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston13" value="1">对
+                    <input class="radio_type" type="radio" name="boston13" value="0">错<br>
+            回答内容:<input type="text" name="boston131">
+        </li>
+        <li class="flex-grow-1">
+            <p>图14（飞标）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston14" value="1">对
+                    <input class="radio_type" type="radio" name="boston14" value="0">错<br>
+            回答内容:<input type="text" name="boston141">
+        </li>
+        <li class="flex-grow-1">
+            <p>图15（口琴）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston15" value="1">对
+                    <input class="radio_type" type="radio" name="boston15" value="0">错<br>
+            回答内容:<input type="text" name="boston151">
+        </li>
+        <li class="flex-grow-1">
+            <p>图16（犀牛）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston16" value="1">对
+                    <input class="radio_type" type="radio" name="boston16" value="0">错<br>
+            回答内容:<input type="text" name="boston161">
+        </li>
+        <li class="flex-grow-1">
+            <p>图17（冰屋）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston17" value="1">对
+                    <input class="radio_type" type="radio" name="boston17" value="0">错<br>
+            回答内容:<input type="text" name="boston171">
+        </li>
+        <li class="flex-grow-1">
+            <p>图18（仙人掌）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston18" value="1">对
+                    <input class="radio_type" type="radio" name="boston18" value="0">错<br>
+            回答内容:<input type="text" name="boston181">
+        </li>
+        <li class="flex-grow-1">
+            <p>图19（扶手电梯）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston19" value="1">对
+                    <input class="radio_type" type="radio" name="boston19" value="0">错<br>
+            回答内容:<input type="text" name="boston191">
+        </li>
+        <li class="flex-grow-1">
+            <p>图20（竖琴）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston20" value="1">对
+                    <input class="radio_type" type="radio" name="boston20" value="0">错<br>
+            回答内容:<input type="text" name="boston201">
+        </li>
+        <li class="flex-grow-1">
+            <p>图21（听诊器）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston21" value="1">对
+                    <input class="radio_type" type="radio" name="boston21" value="0">错<br>
+            回答内容:<input type="text" name="boston211">
+        </li>
+        <li class="flex-grow-1">
+            <p>图22（金字塔）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston22" value="1">对
+                    <input class="radio_type" type="radio" name="boston22" value="0">错<br>
+            回答内容:<input type="text" name="boston221">
+        </li>
+        <li class="flex-grow-1">
+            <p>图23（漏斗）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston23" value="1">对
+                    <input class="radio_type" type="radio" name="boston23" value="0">错<br>
+            回答内容:<input type="text" name="boston231">
+        </li>
+        <li class="flex-grow-1">
+            <p>图24（手风琴）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston24" value="1">对
+                    <input class="radio_type" type="radio" name="boston24" value="0">错<br>
+            回答内容:<input type="text" name="boston241">
+        </li>
+        <li class="flex-grow-1">
+            <p>图25（圆规）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston25" value="1">对
+                    <input class="radio_type" type="radio" name="boston25" value="0">错<br>
+            回答内容:<input type="text" name="boston251">
+        </li>
+        <li class="flex-grow-1">
+            <p>图26（三脚架）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston26" value="1">对
+                    <input class="radio_type" type="radio" name="boston26" value="0">错<br>
+            回答内容:<input type="text" name="boston261">
+        </li>
+        <li class="flex-grow-1">
+            <p>图27（钳）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston27" value="1">对
+                    <input class="radio_type" type="radio" name="boston27" value="0">错<br>
+            回答内容:<input type="text" name="boston271">
+        </li>
+        <li class="flex-grow-1">
+            <p>图28（花棚）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston28" value="1">对
+                    <input class="radio_type" type="radio" name="boston28" value="0">错<br>
+            回答内容:<input type="text" name="boston281">
+        </li>
+        <li class="flex-grow-1">
+            <p>图29（量角器）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston29" value="1">对
+                    <input class="radio_type" type="radio" name="boston29" value="0">错<br>
+            回答内容:<input type="text" name="boston291">
+        </li>
+        <li class="flex-grow-1">
+            <p>图30（算盘）</p>
+            回答得分:<input class="radio_type" type="radio" name="boston30" value="1">对
+                    <input class="radio_type" type="radio" name="boston30" value="0">错<br>
+            回答内容:<input type="text" name="boston301">
+        </li>
+    </div>
+        <li>
+            <p>总分</p>
+            <input type="text" class="w-25" name="boston">
+        </li>
+
+        <h2 id="test10">逻辑记忆</h2>
+        <li>
+            <p>A逻辑记忆-I(故事阅读并即刻回忆)</p>
+            <p>指导语：现在请您看一个故事，看完后请您复述一遍。"（不要告诉要再次回忆。请记录错误回答。满分 20 分，>7 分为正常。</p>
+        
+            <p>
+                （<b>5 月</b>）（<b>1 号</b>）早上（<b>7 点</b>），
+                （<b>李</b>）（<b>小明</b>）先生（<b>起床</b>）了，
+                （<b>洗脸</b>）、（<b>刷牙</b>）的时候，他将一天的（<b>计划</b>）在脑子里过了（<b>一遍</b>）：
+                （<b>9 点</b>）钟（<b>打电话</b>）预订（<b>火车票</b>），
+                （<b>10 点</b>）钟到（<b>超市</b>）购买（<b>饮料</b>）和（<b>方便面</b>），
+                下午（<b>2 点</b>）（<b>30 分</b>）启程去（<b>黄山</b>）。
+            </p>
+        
+            <div class="row align-items-end">
+                <div class="col-12 col-sm-6">
+                    (1)回忆错误内容<input type="text" class="w-20" name="logicmemoryi1">
+                </div>
+                <div class="col-12 col-sm-6">
+                    (2)得分<input type="text" class="w-20" name="logicmemoryi2">
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>逻辑记忆-II(故事再次回忆)</p>
+            <p>指导语：现在请你将刚才看过的故事再回忆一遍。不限时， 告知不需要再次回忆。满分20分，>5分为正常 </p>
+        
+            <div class="row align-items-end">
+                <div class="col-12 col-sm-6">
+                    (1)回忆错误内容<input type="text" class="w-20" name="logicmemoryii1">
+                </div>
+                <div class="col-12 col-sm-6">
+                    (2)得分<input type="text" class="w-20" name="logicmemoryii">
+                </div>
+            </div>
+        </li>
+        <h2 id="test11">相似性测验</h2>
+        <p>
+            指导语：（对文化程度高的受试者）“这里有一对词，你看它们有什么相类似，即是说请你把它的共同性进行概括”。<br>
+            （对文化程度低的受试者）“这里有两样东西，你说它们有什么相类似，即是说所以把它们放在一起有什么理由”。<br>
+            评分标准：每一项分别记2、1或0分三种分，总分26分。连续4次失败（得分0）  停止 。<br>
+            2分：任何概括性分类，而且对一对词中的两个词都很贴切。<br>
+            1分：一对词的个别属性，概括不很贴切。<br>
+            0分：概括不贴切，或只描述一对词中的一个词的特殊属性，或提出二者区别。
+        </p>
+        <div class="row">
+        <li class="col-12 col-md-6 col-xl-4">
+            <p>斧头—锯子（工具）</p>
+            回答得分:<input class="radio_type" type="radio" name="similarity1" value="1">对
+                    <input class="radio_type" type="radio" name="similarity1" value="0">错<br>
+            回答内容:<input type="text" name="similarity11">
+        </li>
+        <li class="col-12 col-md-6 col-xl-4">
+            <p>狗—狮子（动物）</p>
+            回答得分:<input class="radio_type" type="radio" name="similarity2" value="1">对
+                    <input class="radio_type" type="radio" name="similarity2" value="0">错<br>
+
+            回答内容:<input type="text" name="similarity21">
+        </li>
+        <li class="col-12 col-md-6 col-xl-4">
+            <p>橘子—桃子（水果）</p>
+            回答得分:<input class="radio_type" type="radio" name="similarity3" value="1">对
+                    <input class="radio_type" type="radio" name="similarity3" value="0">错<br>
+
+            回答内容:<input type="text" name="similarity31">
+        </li>
+        <li class="col-12 col-md-6 col-xl-4">
+            <p>桌子—椅子（家具）</p>
+            回答得分:<input class="radio_type" type="radio" name="similarity4" value="1">对
+                    <input class="radio_type" type="radio" name="similarity4" value="0">错<br>
+
+            回答内容:<input type="text" name="similarity41">
+        </li>
+        <li class="col-12 col-md-6 col-xl-4">
+            <p>帽子—袜子（衣物）</p>
+            回答得分:<input class="radio_type" type="radio" name="similarity5" value="1">对
+                    <input class="radio_type" type="radio" name="similarity5" value="0">错<br>
+
+            回答内容: <input type="text" name="similarity51">
+        </li>
+        <li class="col-12 col-md-6 col-xl-4">
+            <p>蛋—种子（都可繁衍后代；新生命）</p>
+            回答得分:<input class="radio_type" type="radio" name="similarity6" value="1">对
+                    <input class="radio_type" type="radio" name="similarity6" value="0">错<br>
+
+            回答内容: <input type="text" name="similarity61">
+        </li>
+        <li class="col-12 col-md-6 col-xl-4">
+            <p>北方—西方（方向；位置）</p>
+            回答得分:<input class="radio_type" type="radio" name="similarity7" value="1">对
+                    <input class="radio_type" type="radio" name="similarity7" value="0">错<br>
+
+            回答内容:<input type="text" name="similarity71">
+        </li>
+        <li class="col-12 col-md-6 col-xl-4">
+            <p>眼睛—耳朵（五官；感官）</p>
+            回答得分:<input class="radio_type" type="radio" name="similarity8" value="1">对
+                    <input class="radio_type" type="radio" name="similarity8" value="0">错<br>
+
+            回答内容:<input type="text" name="similarity81">
+        </li>
+        <li class="col-12 col-md-6 col-xl-4">
+            <p>空气—水（人生必需；养生物质）</p>
+            回答得分:<input class="radio_type" type="radio" name="similarity9" value="1">对
+                    <input class="radio_type" type="radio" name="similarity9" value="0">错<br>
+
+            回答内容:<input type="text" name="similarity91">
+        </li>
+        <li class="col-12 col-md-6 col-xl-4">
+            <p>诗词—塑像（艺术品；艺术手段歌颂事物）</p>
+            回答得分:<input class="radio_type" type="radio" name="similarity10" value="1">对
+                    <input class="radio_type" type="radio" name="similarity10" value="0">错<br>
+
+            回答内容:<input type="text" name="similarity101">
+        </li>
+        <li class="col-12 col-md-6 col-xl-4">
+            <p>表扬-处罚（教育的手段；促进的手段）</p>
+            回答得分:<input class="radio_type" type="radio" name="similarity11" value="1">对
+                    <input class="radio_type" type="radio" name="similarity11" value="0">错<br>
+
+            回答内容:<input type="text" name="similarity111">
+        </li>
+        <li class="col-12 col-md-6 col-xl-4">
+            <p>木头—酒精（有机物；碳氢化合物）</p>
+            回答得分:<input class="radio_type" type="radio" name="similarity12" value="1">对
+                    <input class="radio_type" type="radio" name="similarity12" value="0">错<br>
+
+            回答内容:<input type="text" name="similarity121">
+        </li>
+        <li class="col-12 col-md-6 col-xl-4">
+            <p>苍蝇—树（生物）</p>
+            回答得分:<input class="radio_type" type="radio" name="similarity13" value="1">对
+                    <input class="radio_type" type="radio" name="similarity13" value="0">错<br>
+
+            回答内容: <input type="text" name="similarity131">
+        </li>
+        </div>
+        <li>
+            <p>总分</p>
+            <input type="text" class="w-20" name="similarity">
+        </li>
+        <h2 id="test8">词语流畅性</h2>
+        <li>
+            <p>列举动物数</p>
+            耗时:<span id="id_S9">00</span>
+            <input id="start9" type="button" value="60秒计时开始">
+            <!-- <input id="stop9" type="button" value="停止"> -->
+            <p>动物测试：请您尽可能快、尽可能多地说出您所知道的动物的名称。时间是 1 分钟， 准备好了吗？开始。（一分钟后停止。 ）结束。” 检查者需记录下所有受试者所说的词语，重复词语不计入得分 。</p>
+            <div class="row align-items-end">
+                <div class="col-12 col-sm-6 col-md-3">
+                    1～15秒 <input type="text" class="w-20" name="wa1">
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    16～30秒 <input type="text" class="w-20" name="wa2">
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    31～45秒 <input type="text" class="w-20" name="wa3">
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    46～60秒 <input type="text" class="w-20" name="wa4">
+                </div>
+            </div>
+            总分<input type="text" class="w-20" name="wa">
+        </li>
+
+        <li>
+            <p>蔬菜数</p> 耗时:<span id="id_S91">00</span>
+            <input id="start91" type="button" value="开始">
+            <!-- <input id="stop91" type="button" value="停止"> -->
+            <p>蔬菜测试：请您尽可能快、尽可能多地说出您所知道的蔬菜的名称。时间是 1 分钟， 准备好了吗？开始。（一分钟后停止。 ）结束。” 检查者需记录下所有受试者所说的词语，重复词语不计入得分 。</p>
+            <div class="row align-items-end">
+                <div class="col-12 col-sm-6 col-md-3">
+                    1～15秒 <input type="text" class="w-20" name="wc1">
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    16～30秒 <input type="text" class="w-20" name="wc2">
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    31～45秒 <input type="text" class="w-20" name="wc3">
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    46～60秒 <input type="text" class="w-20" name="wc4">
+                </div>
+            </div>
+            总分<input type="text" class="w-20" name="wc">
+        </li>
+        <h2 id="test9">画钟测试</h2>
+        <p>指导语：请您画一个圆形钟，并把数字标在正确的位置上。画好后，请把指针标于 11点 10 分。</p>
+        <li>
+            <p>画钟轮廓是圆形</p>
+            <input type="radio" name="cdt1" value="1">1
+            <input type="radio" name="cdt1" value="0">0
+            <input type="radio" name="cdt1" value="r">r
+        </li>
+        <li>
+            <p>先锚定"12-3-6-9"4个数字关键点</p>
+            <input type="radio" name="cdt2" value="1">1
+            <input type="radio" name="cdt2" value="0">0
+            <input type="radio" name="cdt2" value="r">r
+        </li>
+        <li>
+            <p>有其余 8 个数字</p>
+            <input type="radio" name="cdt3" value="1">1
+            <input type="radio" name="cdt3" value="0">0
+            <input type="radio" name="cdt3" value="r">r
+        </li>
+        <li>
+            <p>数字没有写错，顺序正确：</p>
+            <input type="radio" name="cdt4" value="1">1
+            <input type="radio" name="cdt4" value="0">0
+            <input type="radio" name="cdt4" value="r">r
+        </li>
+        <li>
+            <p>所有数字在圆圈内：</p>
+            <input type="radio" name="cdt5" value="1">1
+            <input type="radio" name="cdt5" value="0">0
+            <input type="radio" name="cdt5" value="r">r
+        </li>
+        <li>
+            <p>数字顺时针排列：</p>
+            <input type="radio" name="cdt6" value="1">1
+            <input type="radio" name="cdt6" value="0">0
+            <input type="radio" name="cdt6" value="r">r
+        </li>
+        <li>
+            <p>数字间距离相等：</p>
+            <input type="radio" name="cdt7" value="1">1
+            <input type="radio" name="cdt7" value="0">0
+            <input type="radio" name="cdt7" value="r">r
+        </li>
+        <li>
+            <p>有 2 根时针和分针</p>
+            <input type="radio" name="cdt8" value="1">1
+            <input type="radio" name="cdt8" value="0">0
+            <input type="radio" name="cdt8" value="r">r
+        </li>
+        <li>
+            <p>两个指针一起指向正确的时间 </p>
+            <input type="radio" name="cdt9" value="1">1
+            <input type="radio" name="cdt9" value="0">0
+            <input type="radio" name="cdt9" value="r">r
+        </li>
+        <li>
+            <p>时针明显短于分针</p>
+            <input type="radio" name="cdt10" value="1">1
+            <input type="radio" name="cdt10" value="0">0
+            <input type="radio" name="cdt10" value="r">r
+        </li>
+        <li>
+            <p>指针有箭头</p>
+            <input type="radio" name="cdt12" value="1">1
+            <input type="radio" name="cdt12" value="0">0
+            <input type="radio" name="cdt12" value="r">r
+        </li>
+        <li>
+            <p>中央点位置正确</p>
+            <input type="radio" name="cdt13" value="1">1
+            <input type="radio" name="cdt13" value="0">0
+            <input type="radio" name="cdt13" value="r">r
+        </li>
+        <li>
+            <p>总分</p>
+            <input type="text" class="w-25" name="cdt">
+        </li>
+
+    </ol>
+    <button id="formSubmit" type="submit">提交</button>
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/scale_style.js"></script>
+<script>
+    var calcOption = function(name, right_value, multiple=1) {
+        $ = jQuery;
+        var radioSelector = `input[type=radio][name^=${name}]`;
+        $(`input[name=${name}]`).attr('disabled', true);
+        var calcOnChange = function() {
+            var result = $(`${radioSelector}[value=1]`).toArray().reduce((s, el) => s + (el.checked?1:0), 0);
+            result = parseInt(result) * multiple;
+            $(`input[name=${name}]`).val(result);
+        }
+        $(radioSelector).each((idx, el) => {
+            el.onchange = calcOnChange
+        });
+        return calcOnChange;
+    }
+    var calcBoston = calcOption('boston', 1);
+    var calcSimilarity = calcOption('similarity', 1, 2);
+    var calcCdt = calcOption('cdt', 1);
+    $('input[name^=boston][type=text]').each()
+    //可以将查找标签节点的操作进行简化  var btn = getElementById('btn')
+    function $(id) {
+        return document.getElementById(id)
+    }
+    window.onload = function() {
+        //点击开始建 开始计数
+        var count = 0
+        var count1 = 0
+        var timer = null //timer变量记录定时器setInterval的返回值
+        var timer1 = null //timer变量记录定时器setInterval的返回值
+        var count2 = 0
+        var timer2 = null //timer变量记录定时器setInterval的返回值
+        var count3 = 0
+        var timer3 = null //timer变量记录定时器setInterval的返回值
+        var count4 = 0
+        var timer4 = null //timer变量记录定时器setInterval的返回值
+        var count5 = 0
+        var timer5 = null //timer变量记录定时器setInterval的返回值
+        var count6 = 0
+        var timer6 = null //timer变量记录定时器setInterval的返回值
+        var count7 = 0
+        var timer7 = null //timer变量记录定时器setInterval的返回值
+        var count8 = 0
+        var timer8 = null //timer变量记录定时器setInterval的返回值
+        var count9 = 0
+        var count91 = 0
+        var  count10=0;
+        var  count11=0;
+        var  count12=0;
+
+        //封装一个处理单位数字的函数
+        function showNum(num) {
+            if (num < 10) {
+                return '0' + num
+            }
+            return num
+        }
+
+        $("start").onclick = function() {
+            timer = setInterval(function() {
+                count++;
+                console.log(count)
+                // 需要改变页面上时分秒的值
+                console.log($("id_S"))
+                $("id_S").innerHTML = showNum(count )
+            }, 1000)
+        }
+        //停止记数  数据清零  页面展示数据清零
+        $("stop").onclick = function() {
+            //取消定时器
+//            $("pause").onclick()
+             clearInterval(timer)
+            timer.clean()
+            //页面展示数据清零
+            $("s").innerHTML = count
+            //数据清零  总秒数清零
+            count = 0
+        }
+
+        $("start1").onclick = function() {
+            timer1 = setInterval(function() {
+                count1++;
+                console.log(count)
+                // 需要改变页面上时分秒的值
+                console.log($("id_S1"))
+                $("id_S1").innerHTML = showNum(count1 )
+            }, 1000)
+        }
+        //停止记数  数据清零  页面展示数据清零
+        $("stop1").onclick = function() {
+            //取消定时器
+//            $("pause").onclick()
+             clearInterval(timer1)
+            timer1.clean()
+            //页面展示数据清零
+            $("s1").innerHTML = count1
+            //数据清零  总秒数清零
+            count1 = 0
+        }
+        $("start2").onclick = function() {
+            timer2 = setInterval(function() {
+                count2++;
+                console.log(count)
+                // 需要改变页面上时分秒的值
+                console.log($("id_S2"))
+                $("id_S2").innerHTML = showNum(count2 )
+            }, 1000)
+        }
+        //停止记数  数据清零  页面展示数据清零
+        $("stop2").onclick = function() {
+            //取消定时器
+//            $("pause").onclick()
+             clearInterval(timer2)
+            timer2.clean()
+            //页面展示数据清零
+            $("s2").innerHTML = count2
+            //数据清零  总秒数清零
+            count2 = 0
+        }
+        $("start3").onclick = function() {
+            timer3 = setInterval(function() {
+                count3++;
+                console.log(count)
+                // 需要改变页面上时分秒的值
+                console.log($("id_S3"))
+                $("id_S3").innerHTML = showNum(count3 )
+            }, 1000)
+        }
+        //停止记数  数据清零  页面展示数据清零
+        $("stop3").onclick = function() {
+            //取消定时器
+//            $("pause").onclick()
+             clearInterval(timer3)
+            timer3.clean()
+            //页面展示数据清零
+            $("s3").innerHTML = count3
+            //数据清零  总秒数清零
+            count3 = 0
+        }
+        $("start4").onclick = function() {
+            timer4 = setInterval(function() {
+                count4++;
+                console.log(count)
+                // 需要改变页面上时分秒的值
+                console.log($("id_S4"))
+                $("id_S4").innerHTML = showNum(count4 )
+            }, 1000)
+        }
+        //停止记数  数据清零  页面展示数据清零
+        $("stop4").onclick = function() {
+            //取消定时器
+//            $("pause").onclick()
+             clearInterval(timer4)
+            timer4.clean()
+            //页面展示数据清零
+            $("s4").innerHTML = count4
+            //数据清零  总秒数清零
+            count4 = 0
+        }
+        $("start5").onclick = function() {
+            timer5 = setInterval(function() {
+                count5++;
+                console.log(count)
+                // 需要改变页面上时分秒的值
+                console.log($("id_S5"))
+                $("id_S5").innerHTML = showNum(count5 )
+            }, 1000)
+        }
+        //停止记数  数据清零  页面展示数据清零
+        $("stop5").onclick = function() {
+            //取消定时器
+//            $("pause").onclick()
+             clearInterval(timer5)
+            timer5.clean()
+            //页面展示数据清零
+            $("s5").innerHTML = count5
+            //数据清零  总秒数清零
+            count5 = 0
+        }
+        $("start6").onclick = function() {
+            timer6 = setInterval(function() {
+                count6++;
+                console.log(count)
+                // 需要改变页面上时分秒的值
+                console.log($("id_S6"))
+                $("id_S6").innerHTML = showNum(count6 )
+            }, 1000)
+        }
+        //停止记数  数据清零  页面展示数据清零
+        $("stop6").onclick = function() {
+            //取消定时器
+//            $("pause").onclick()
+            //页面展示数据清零
+            $("s6").innerHTML = count6
+             clearInterval(timer6)
+            timer6.clean()
+            //数据清零  总秒数清零
+            count6 = 0
+        }
+        $("start7").onclick = function() {
+            timer7 = setInterval(function() {
+                count7++;
+                console.log(count)
+                // 需要改变页面上时分秒的值
+                console.log($("id_S7"))
+                $("id_S7").innerHTML = showNum(count7 )
+            }, 1000)
+        }
+        //停止记数  数据清零  页面展示数据清零
+        $("stop7").onclick = function() {
+            //取消定时器
+//            $("pause").onclick()
+             clearInterval(timer7)
+            timer7.clean()
+            //页面展示数据清零
+            $("s7").innerHTML = count7
+            //数据清零  总秒数清零
+            count7 = 0
+        };
+        $("start8").onclick = function() {
+            timer8 = setInterval(function() {
+                count8++;
+                console.log(count)
+                // 需要改变页面上时分秒的值
+                console.log($("id_S8"))
+                $("id_S8").innerHTML = showNum(count8 )
+            }, 1000)
+        }
+        //停止记数  数据清零  页面展示数据清零
+        $("stop8").onclick = function() {
+            //取消定时器
+//            $("pause").onclick()
+            clearInterval(timer8)
+            timer8.clean()
+            //页面展示数据清零
+            $("s8").innerHTML = count8
+            //数据清零  总秒数清零
+            count8 = 0
+        }
+        $("start9").onclick = function() {
+            timer = setInterval(function() {
+                count9++;
+                $("id_S9").innerHTML = showNum(count9+"秒");
+                if(count9==60){
+                    alert("词语流畅性-动物数 1 分钟计时结束");
+                    clearInterval(timer);
+                    timer.clean();
+                    count9=0;
+                }
+            },1000)
+            // 旧版手动开始停止
+            // timer = setInterval(function() {
+            //     count9++;
+            //     $("id_S9").innerHTML = showNum(count9 )
+            // }, 1000)
+        }
+        // //停止记数  数据清零  页面展示数据清零
+        // $("stop9").onclick = function() {
+        //     //取消定时器
+//      //       $("pause").onclick()
+        //     clearInterval(timer);
+        //     timer.clean();
+        //     //页面展示数据清零
+        //     $("s9").innerHTML = count9;
+        //     //数据清零  总秒数清零
+        //     count9 = 0
+        // };
+        $("start91").onclick = function() {
+            timer = setInterval(function() {
+                count91++;
+                $("id_S91").innerHTML = showNum(count91+"秒");
+                if(count91==60){
+                    alert("词语流畅性-蔬菜数 1 分钟计时结束");
+                    clearInterval(timer);
+                    timer.clean();
+                    count91=0;
+                }
+            },1000)
+            // 旧版手动开始停止
+            // timer = setInterval(function() {
+            //     count91++;
+            //     $("id_S91").innerHTML = showNum(count91)
+            // }, 1000)
+        }
+        // //停止记数  数据清零  页面展示数据清零
+        // $("stop91").onclick = function() {
+        //     //取消定时器
+//      //       $("pause").onclick()
+        //     clearInterval(timer)
+        //     timer.clean()
+        //     //页面展示数据清零
+        //     $("s91").innerHTML = count91
+        //     //数据清零  总秒数清零
+        //     count91 = 0
+        // }
+
+        $("start10").onclick = function() {
+            timer = setInterval(function() {
+                count10++;
+                var count20;
+                if(count/60>=1){
+                    count20=parseInt(count10/60)+"分"+count10%60;
+                }else {
+                    count20=count10;
+                }
+                $("id_S10").innerHTML = showNum(count20+"秒");
+                if(count10==60*5){
+                    alert("听觉词语测验5分钟计时结束");
+                    clearInterval(timer);
+                    timer.clean();
+                    count10=0;
+                }
+
+            },1000)
+        }
+        $("start11").onclick = function() {
+            timer = setInterval(function() {
+                count11++;
+                var count21;
+                if(count/60>=1){
+                    count21=parseInt(count11/60)+"分"+count11%60;
+                }else {
+                    count21=count11;
+                }
+                $("id_S11").innerHTML = showNum(count21+"秒");
+                if(count11==60*20){
+                    alert("听觉词语测验20分钟计时结束");
+                    clearInterval(timer);
+                    timer.clean();
+                    count11=0;
+                }
+            },1000)
+        }
+        $("start12").onclick = function() {
+            timer = setInterval(function() {
+                count12++;
+                $("id_S12").innerHTML = showNum(count12+"秒")
+                if(count12==90){
+                    alert("符号数字转换测验(SDMT)90秒结束");
+                    clearInterval(timer)
+                    timer.clean();
+                    count12=0;
+                }
+            },1000)
+        }
+
+    }
+</script>
+<script type="text/javascript">
+
+    var formType = 10;
+    var tid = getRequest().tid;
+    var pid = getRequest().pid;
+
+    $(function () {
+        var pn = $.cookie('pname');
+        $("#pname").text(pn);
+        let formID = "#form1";
+        let autoUploadTime = 20 * 1000;
+
+        let init = () => {
+            initData(tid, pid, formType, formID);
+
+            window.setInterval(function () {
+//                console.info("数据次数:")
+                initForm(tid, pid, formType, formID);
+            }, autoUploadTime);
+        }
+
+        if (pid) {
+            getUnfinished(pid, formType, (lastTid) => {
+                if (lastTid) {
+                    tid = lastTid;
+                }
+            })
+        }
+
+        if (tid) {
+            getData(tid, formType, formID, (data) => {
+                console.debug(data);
+            pid = data.pid;
+            init();
+        });
+        } else {
+            getId(pid, formType, formID, (newTid) => {
+                console.debug('Get new tid: ' + newTid);
+            tid = newTid
+            init();
+        });
+        };
+    });
+
+</script>
+<script type="text/javascript">
+    // 用于分块标记的元素 ID 列表
+    let sectionId = $('h2[id^=test]').toArray().map(el => `#${el.id}`)
+    sectionId.push('#formSubmit');  // 提交按钮作为结束标记
+    // ['#test1', '#test2', '#test3', ..., '#formSubmit']
+
+    function markDone() {
+        for (var i = 0; i < sectionId.length - 1; i++) {
+            $invalids = $(sectionId[i]).nextUntil(sectionId[i + 1]).find(':invalid');
+            if ($invalids.length === 0) {
+                $(`#link-label-${i + 1}`).addClass('done');
+            } else {
+                $(`#link-label-${i + 1}`).removeClass('done');
+            }
+        }
+    }
+
+    $(':invalid').on('change', markDone);
+</script>
+<style type="text/css">
+    .link-label.done {
+        color: red;
+    }
+</style>
+
+</body>
+</html>

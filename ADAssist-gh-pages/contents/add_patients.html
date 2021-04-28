@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <!-- Google Chrome Frame也可以让IE用上Chrome的引擎: -->
+    <meta name="renderer" content="webkit">
+    <!--国产浏览器高速模式-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="AD助手" />
+    <!-- 作者 -->
+    <meta name="revised" content="AD助手.v1, 2019/12/15" />
+    <!-- 定义页面的最新版本 -->
+    <meta name="description" content="网站简介" />
+    <!-- 网站简介 -->
+    <meta name="keywords" content="搜索关键字，以半角英文逗号隔开" />
+    <title>AD助手</title>
+
+    <!-- 公共样式 开始 -->
+    <link rel="stylesheet" type="text/css" href="../css/base.css">
+    <link rel="stylesheet" type="text/css" href="../css/iconfont.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../layui/css/layui.css">
+    <script type="text/javascript" src="../layui/layui.js"></script>
+    <!-- 滚动条插件 -->
+    <link rel="stylesheet" type="text/css" href="../css/jquery.mCustomScrollbar.css">
+    <script src="../framework/jquery-ui-1.10.4.min.js"></script>
+    <script src="../framework/jquery.mousewheel.min.js"></script>
+    <script src="../framework/jquery.mCustomScrollbar.min.js"></script>
+    <script src="../framework/cframe.js"></script><!-- 仅供所有子页面使用 -->
+    <!-- 公共样式 结束 -->
+
+    <style>
+        .layui-form{
+            margin-right: 30%;
+        }
+        .layui-form-label{
+            width: 100px;
+        }
+        .layui-input-block{
+            margin-left: 130px;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="cBody">
+    <form id="form1" class="layui-form" action="">
+        <div class="layui-form-item">
+            <label class="layui-form-label">病&nbsp&nbsp例&nbsp&nbspID：</label>
+            <div class="layui-input-block">
+                <input type="text" name="cnid" required lay-verify="required|number" placeholder="阿拉伯数字ID（如：12345678）" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">姓&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名：</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" required="required" placeholder="患者姓名（如：张三）" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">出生日期：</label>
+            <div class="layui-input-block">
+                <input type="date", name="age"/>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">性&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别：</label>
+            <div class="layui-input-block">
+                <input type="radio" name="sex" value="F" title="男" checked>
+                <input type="radio" name="sex" value="M" title="女">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">手&nbsp&nbsp机&nbsp&nbsp号：</label>
+            <div class="layui-input-block">
+                <input type="tel" name="tel" maxlength="11" required lay-verify="required|number" placeholder="11位阿拉伯数字（如：12345678）" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="submitBut" id="formSubmit">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- 全局js -->
+    <script src="http://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+    <script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            initForm();
+            layui.use(['form'], function () {
+                var form = layui.form;
+            });
+        })
+
+        function initForm() {
+            var uid = $.cookie('uid');
+            console.log("uid ",uid);
+            $("#formSubmit").on("click", function () {
+                    var formData = $("#form1").serializeFormToJson();
+                    var fields = {
+                        "cnid": formData.cnid,
+                        "name": "dua:" + formData.name,
+                        "sex": formData.sex,
+                        "bday": formData.age.replace(/-/g, ""),
+                        "dopamine": "1",
+                        "meduse": "",
+                        "avatar": "",
+                        "medhistory": ""
+                    }
+                    var map = {
+                        "name": uid,
+                        "dua_id": uid,
+                        "doc_uid": uid,
+                        "utable": "parpat",
+                        "tel": formData.tel,
+                        "fields": fields,
+                        "pwd": md5("123456")
+                    }
+                    console.log(JSON.stringify(map));
+                    $.ajax({
+                        url: "http://par.ict.ac.cn:10000/3/users",
+                        type: "POST",
+                        contentType: "application/json;charset=utf-8",
+                        dataType: "json",
+                        data: JSON.stringify(map),
+                        success: function (data) {
+                            console.log("userlog", data)
+                            if (data.status == 0) {
+
+                                location.reload();
+                                //window.history.go(-1)
+                                console.info("用户添加成功", data);
+                                console.info("用户uid ", data.result.uid);
+                                $.cookie("pname", formData.name)
+                                window.location.href = "1yiban.html?pid="+data.result.uid;
+//                                alert("你好，你提交成功啦！");
+                            } else {
+                                alert(data.reason);
+                            }
+                        }
+                    });
+                    return false;
+                }
+            )
+        }
+    </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+/* 隐藏滚动条 */
+body {
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+    width: 0 !important
+}
+
+#logo span {
+    color: #4682B4;
+    font-weight: bold;
+    /* 文本不折行 */
+    white-space: nowrap;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+a {
+    color: inherit;
+}
+
+a:hover {
+    color: inherit;
+}
+
+.nav-link {
+    display: inline;
+    color: white;
+    font-weight: bold;
+    transition: border-bottom-width 0.5s ease-in-out;
+}
+
+.nav-link:hover {
+    font-weight: bold;
+    border-bottom: 2px solid #ffffffdd;
+}
+
+nav.navbar {
+    color: white;
+    background-color: #4682B4;
+}
+
+.navbar-toggler {
+    color: white;
+}
+
+#carousel-indicators {
+    height: 400px;
+    transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 575.98px) {
+    #carousel-indicators {
+        height: 200px;
+    }
+}
+
+.carousel-item {
+    text-align: center;
+}
+
+#image-links .image {
+    width: 200px;
+    height: 200px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#image-links .text {
+    color: #dc3545;
+    font-weight: bold;
+    writing-mode: tb;
+    writing-mode: vertical-lr;
+}
+
+@media (max-width: 300px) {
+    #image-links .image {
+        width: 100px;
+        height: 100px;
+    }
+}

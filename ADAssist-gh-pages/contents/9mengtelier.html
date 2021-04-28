@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>蒙特利尔认知评估表(MoCA-B)</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link href="../css/forScale.css" rel="stylesheet">
+    <link href="../css/scale_style.css" rel="stylesheet">
+</head>
+<body>
+<h2 id="pname"></h2>
+<form id="form1" class="timu">
+    <p>填写时间:</p>
+    <input type="date" id="date" name="date">
+    <br>
+    <input id="start" type="button" value="计时开始">
+    <ol>
+        <li>
+            <p>连线</p>
+            <p>指导语：“请您按照从数字到点并逐渐升高的顺序画一条连线。从这里开始[指向 数字（1）]，从数字1连向一个点[指向含有一个点的正方形]，再连向数字2[指向数字（2）]，之后连向
+                两个点[指向含有两个点的正方形]，并一直连下去，到这里结束[指向含有6个点的正方形]”。</p>
+            <img src="../img/tmt1.jpg"><br>
+            <input class="radio_type" type="radio" name="moca1" value="1" >对
+            <input class="radio_type" type="radio" name="moca1" value="-1">错
+            <input class="radio_type" type="radio" name="moca1" value="0">拒绝
+        </li>
+
+        <li>
+            <p>即刻回忆</p>
+            <p>指导语： “这是一个记忆力测验。下面我会给您读五个词，您注意听，我读完后，把您记住的词告诉我。回答时想到哪个就说哪个，不必按照我读的顺序”。
+                检 查者以每秒钟 1 个词的速度读出 5 个词（桃花、萝卜、沙发、蓝色、筷子）。把受试者回答正确的词在第一试的空栏中标出。当受试者回答出所有的词，或者再也回忆不起来时，把这
+                5个词再读一遍，并向受试者说明：“我把这些词再读一遍，请您努力记住它们并把记住的告诉我，您在第一次已经说过的词这次还可以说”。把受试者回答正确的词在第二试的空栏中标出。第二试结束后，告诉受试者一会儿还要让他回忆这些词：“请您记住这些词，我后面还会要您回忆的”。 </p>
+            <span>第一次回忆:</span>
+            <div class="d-inline-flex flex-wrap">
+                <div class="d-inline mx-2">桃花<input type="text" name="moca2" value=" "></div>
+                <div class="d-inline mx-2">萝卜<input type="text" name="moca2" value=" "></div>
+                <div class="d-inline mx-2">沙发<input type="text" name="moca2" value=" "></div>
+                <div class="d-inline mx-2">蓝色<input type="text" name="moca2" value=" "></div>
+                <div class="d-inline mx-2">筷子<input type="text" name="moca2" value=" "></div>
+            </div>
+            <br/>
+            <span>第二次回忆:</span>
+            <div class="d-inline-flex flex-wrap">
+                <div class="d-inline mx-2">桃花<input  type="text" name="moca2" value=" "></div>
+                <div class="d-inline mx-2">萝卜<input  type="text" name="moca2" value=" "></div>
+                <div class="d-inline mx-2">沙发<input  type="text" name="moca2" value=" "></div>
+                <div class="d-inline mx-2">蓝色<input  type="text" name="moca2" value=" "></div>
+                <div class="d-inline mx-2">筷子<input  type="text" name="moca2" value=" "></div>
+            </div>
+        </li>
+
+
+        <li>
+            <p>词语流畅性</p><span id="id_S3">00</span><input id="start3" type="button" value="60秒计时开始">
+            <p>指导语： “请您尽可能快、尽可能多地说出您所知道的水果的名称。时间是 1 分钟， 准备好了吗？开始。（一分钟后停止。）结束。” 检查者需记录受试者所说的所有词语，重复词语不计入。</p>
+            <div class="d-flex flex-wrap">
+                <div class="mr-3">
+                    1～15秒<input type="text" name="moca31">
+                </div>
+                <div class="mr-3">
+                    16～30秒<input type="text" name="moca32">
+                </div>
+                <div class="mr-3">
+                    31～45秒<input type="text" name="moca33">
+                </div>
+                <div class="mr-3">
+                    46～60秒<input type="text" name="moca34">
+                </div>
+            </div>
+            <br>
+            总数<input class="w-50" type="number" name="moca3">
+            <br>
+            <input class="radio_type" type="radio" name="moca35" value="1" >≥13个
+            <input class="radio_type" type="radio" name="moca35" value="-1">8-12个
+            <input class="radio_type" type="radio" name="moca35" value="0">≤7个
+        </li>
+
+        <li>
+            <p>定向</p>
+            <p>指导语： “不要看手表或钟，请告诉我现在是几点钟了”。 然后再问下一个问题：“告诉我现在是哪年，哪月，今天是星期几。”最后再问：“ 现在告诉我这是什么地方，它在哪个城市？””。</p>
+            <input class="radio_type" type="radio" name="moca3" value="对" checked>对
+            <input class="radio_type" type="radio" name="moca3" value="错">错
+
+        </li>
+        <li>
+            <p>星期几</p>
+
+            <input class="radio_type" type="radio" name="moca4" value="1" >对
+            <input class="radio_type" type="radio" name="moca4" value="-1">错
+
+        </li>
+        <li>
+            <p>月份</p>
+
+            <input class="radio_type" type="radio" name="moca5" value="1" >对
+            <input class="radio_type" type="radio" name="moca5" value="-1">错
+
+        </li>
+        <li>
+            <p>年份</p>
+
+            <input class="radio_type" type="radio" name="moca6" value="1" >对
+            <input class="radio_type" type="radio" name="moca6" value="-1">错
+
+        </li>
+        <li>
+            <p>地点</p>
+
+            <input class="radio_type" type="radio" name="moca7" value="1" >对
+            <input class="radio_type" type="radio" name="moca7" value="-1">错
+
+        </li>
+        <li>
+            <p>城市</p>
+
+            <input class="radio_type" type="radio" name="moca8" value="1" >对
+            <input class="radio_type" type="radio" name="moca8" value="-1">错
+
+        </li>
+        <li>
+            <p>抽象</p>
+            <p>指导语：下面的事物属于什么类别？（例如：香蕉-桔子=水果）</p>
+            <p>抽象-1 （火车-轮船)</p>
+
+            <input class="radio_type" type="radio" name="moca9" value="1" >对
+            <input class="radio_type" type="radio" name="moca9" value="-1">错
+
+        </li>
+        <li>
+            <p>抽象-2 (锣鼓-笛子)</p>
+
+            <input class="radio_type" type="radio" name="moca10" value="1" >对
+            <input class="radio_type" type="radio" name="moca10" value="-1">错
+
+        </li>
+        <li>
+            <p>抽象-3 （北方-南方）</p>
+
+            <input class="radio_type" type="radio" name="moca11" value="1" >对
+            <input class="radio_type" type="radio" name="moca11" value="-1">错
+
+        </li>
+        <li>
+            <p>计算</p>
+            <p>指导语： “想象您有很多 1 元、5 元和 10 元的钱。现在您购买了一个 13 元的东西，需要付给我 13 元，请给我 3 种付款方式。我不会找您零钱，需要您付给我 13 元整。”当受试者提供了
+                一个需要找零钱的付款方式，检查者可以鼓励受试者“还有其他方法吗？ 用 1 元、5 元、10 元钱购买“13 元”的物品，说出 3 种付款方式。</p>
+
+            <input class="radio_type" type="radio" name="moca12" value="3种">3种
+            <input class="radio_type" type="radio" name="moca12" value="2种">2种
+            <input class="radio_type" type="radio" name="moca12" value="1种">1种
+            <input class="radio_type" type="radio" name="moca12" value="0种">0种
+
+        </li>
+        <li>
+            <p>延时记忆-1 （桃花）</p>
+            <p>指导语：现在请您告诉我刚才读过的5个词语；</p>
+
+            <input class="radio_type" type="radio" name="moca13" value="1" >对
+            <input class="radio_type" type="radio" name="moca13" value="-1">错
+
+        </li>
+        <li>
+            <p>延时记忆-2 （萝卜）</p>
+            <input class="radio_type" type="radio" name="moca14" value="1" >对
+            <input class="radio_type" type="radio" name="moca14" value="-1">错
+
+        </li>
+        <li>
+            <p>延时记忆-3 （沙发）</p>
+            <input class="radio_type" type="radio" name="moca15" value="1" >对
+            <input class="radio_type" type="radio" name="moca15" value="-1">错
+
+        </li>
+        <li>
+            <p>延时记忆-4 （蓝色）</p>
+
+            <input class="radio_type" type="radio" name="moca16" value="1" >对
+            <input class="radio_type" type="radio" name="moca16" value="-1">错
+
+        </li>
+        <li>
+            <p>延时记忆-5 （筷子）</p>
+
+            <input class="radio_type" type="radio" name="moca17" value="1" >对
+            <input class="radio_type" type="radio" name="moca17" value="-1">错
+
+        </li>
+        <li>
+            <p>视知觉</p><span id="id_S4">00</span><input id="start4" type="button" value="60秒计时开始">
+            <p> 指导语：“现在请您看这张图。图片里有很多重叠在一起的物品。请尽可能地把它们找出来。如果您不知道它们的名字，可以指出它们的轮廓或告诉我它们的功能。不能旋转图片。你可以慢慢做，但时间不超过 2
+                分钟。准备好了吗？开始。” 指导语结束 60 秒后停止测试。受试者不能旋转图片，不能告知受试者总共有 10 项物品。在视知觉部分计分表上用数字记录每个正确回答的顺序。</p>
+            <img src="../img/shizhijue.jpg">
+            <p>
+                <input class="radio_type" type="radio" name="moca18" value="9-10个">9-10个
+                <input class="radio_type" type="radio" name="moca18" value="6-8个">6-8个
+                <input class="radio_type" type="radio" name="moca18" value="4-5个">4-5个
+                <input class="radio_type" type="radio" name="moca18" value="3个以下">3个以下
+            </p>
+            <div class="d-inline-flex flex-wrap">
+                <div class="d-inline mx-2">剪刀<input type="text" name="moca182" value=" "></div>
+                <div class="d-inline mx-2">T恤<input type="text" name="moca182" value=" "></div>
+                <div class="d-inline mx-2">香蕉<input type="text" name="moca182" value=" "></div>
+                <div class="d-inline mx-2">台灯<input type="text" name="moca182" value=" "></div>
+                <div class="d-inline mx-2">蜡烛<input type="text" name="moca182" value=" "></div>
+                <div class="d-inline mx-2">手表<input type="text" name="moca182" value=" "></div>
+                <div class="d-inline mx-2">杯子<input type="text" name="moca182" value=" "></div>
+                <div class="d-inline mx-2">叶子<input type="text" name="moca182" value=" "></div>
+                <div class="d-inline mx-2">钥匙<input type="text" name="moca182" value=" "></div>
+                <div class="d-inline mx-2">勺子<input type="text" name="moca182" value=" "></div>
+            </div>
+        </li>
+        <p>命名</p>
+        <p>指导语：自左向右从上到下指着附录中图片问受试者：“请您告诉我这个动物的名字”。</p>
+        <img src="../img/mingming.jpg"><br>
+        <li>
+            <p>命名-1 （斑马）</p>
+
+            <input class="radio_type" type="radio" name="moca19" value="1" >对
+            <input class="radio_type" type="radio" name="moca19" value="-1">错
+
+        </li>
+        <li>
+
+            <p>命名-2 （孔雀）</p>
+
+            <input class="radio_type" type="radio" name="moca20" value="1" >对
+            <input class="radio_type" type="radio" name="moca20" value="-1">错
+
+        </li>
+        <li>
+            <p>命名-3 （老虎）</p>
+
+            <input class="radio_type" type="radio" name="moca21" value="1" >对
+            <input class="radio_type" type="radio" name="moca21" value="-1">错
+
+        </li>
+        <li>
+            <p>命名-4 （蝴蝶）</p>
+
+            <input class="radio_type" type="radio" name="moca22" value="1" >对
+            <input class="radio_type" type="radio" name="moca22" value="-1">错
+
+        </li>
+        <li>
+            <p>注意-1</p>
+            <p>指导语：指向附录中白色背景的数字，并向受试者说明“请看向这些白色背景的数字。现在要您大声读出圆形中的数字，正方形和三角形中的数字不要读。从这里开始[指向数列开头 ①]，到这里结束[指向数列结尾⑤
+                ]。开始。</p>
+<img src="../img/zhuyi1.jpg"><br>
+            <input class="radio_type" type="radio" name="moca23" value="完全正确或只有一次错误" >完全正确或只有一次错误
+            <input class="radio_type" type="radio" name="moca23" value="有2个或2个以上错误">有2个或2个以上错误
+
+        </li>
+        <li>
+            <p>注意-2</p>
+            <p>指导语：指向附录中黑色背景的数字，并向受试者说明“请看向这些黑色背景的数字。现在要您大声读出圆形和正方形中的数字，三角形中的数字不要读。从这里开始[指向第一行数列开头△ 3 ]，到
+                这里结束[指向第二行数列结尾△ 5  ]。开始。” 错误是指读非圆形或正方形中的数字、跳过圆形或正方形中的数字而没有读、朗读数字顺序错误或 读之前的数字。记录下错误个数。
+                结束时间：在受试者完成最后一项测试（注意）时停止计算时间（时-分-秒），计算测试时间（分钟， 秒），记录于量表右下角。 </p>
+            <img src="../img/zhuyi2.jpg"><br>
+            <input class="radio_type" type="radio" name="moca24" value="有2个或2个以下错误" >有2个或2个以下错误
+            <input class="radio_type" type="radio" name="moca24" value="有3个错误">有3个错误
+            <input class="radio_type" type="radio" name="moca24" value="有4个或4个以上错">有4个或4个以上错
+
+        </li>
+        <li>
+            完成测试所用时间<input type="text" name="mocatime">秒
+        </li>
+
+    </ol>
+    <p>
+    <span id="id_S">00</span>
+    <input id="stop" type="button" value="结束计时"><br>
+    </p>
+    <p>
+    <button id="formSubmit" type="submit">提交</button>
+    </p>
+    <br>
+    <br>
+    <br>
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/scale_style.js"></script>
+
+<script>
+    //可以将查找标签节点的操作进行简化  var btn = getElementById('btn')
+    function _$(id) {
+        return document.getElementById(id)
+    }
+    window.onload = function() {
+        //点击开始建 开始计数
+        var count = 0;
+        var  count3=0;
+        var  count4=0;
+        var timerMain = null //timer变量记录定时器setInterval的返回值
+        var timer = null //timer变量记录定时器setInterval的返回值
+
+        //封装一个处理单位数字的函数
+        function showNum(num) {
+            if (num < 10) {
+                return  num
+            }
+            return num
+        }
+
+        _$("start").onclick = function() {
+            timerMain = setInterval(function() {
+                count++;
+                console.log(count)
+                // 需要改变页面上时分秒的值
+                console.log($("id_S"))
+                var count2;
+                if(count/60>=1){
+                    count2=parseInt(count/60)+"分"+count%60;
+                }else {
+                    count2=count;
+                }
+                _$("id_S").innerHTML = showNum(count2+"秒")
+            },1000)
+        };
+        //停止记数  数据清零  页面展示数据清零
+        _$("stop").onclick = function() {
+            //取消定时器
+//            $("pause").onclick()
+            clearInterval(timerMain)
+            // timer.clean();
+            delete(timerMain)
+            //页面展示数据清零
+            $("input[name=mocatime]").val(count);
+            //数据清零  总秒数清零
+            count = 0
+        }
+
+        _$("start3").onclick = function() {
+            timer = setInterval(function() {
+                count3++;
+                _$("id_S3").innerHTML = showNum(count3+"秒")
+                if(count3==60){
+                    alert("词语流畅性60秒计时结束");
+                    clearInterval(timer)
+                    timer.clean();
+                    count3=0;
+                }
+
+            },1000)
+        }
+        _$("start4").onclick = function() {
+            timer = setInterval(function() {
+                count4++;
+                _$("id_S4").innerHTML = showNum(count4+"秒")
+                if(count4==60){
+                    alert("视知觉60秒计时结束");
+                    clearInterval(timer)
+                    timer.clean();
+                    count4=0;
+                }
+
+            },1000)
+        }
+    }
+</script>
+
+<script type="text/javascript">
+
+    var formType = 9;
+    var tid = getRequest().tid;
+    var pid = getRequest().pid;
+
+    $(function () {
+        var pn = $.cookie('pname');
+        $("#pname").text(pn);
+
+        let formID = "#form1";
+        let autoUploadTime = 20 * 1000;
+
+        let init = () => {
+            initData(tid, pid, formType, formID);
+
+            window.setInterval(function () {
+                // console.info("数据次数:")
+                initForm(tid, pid, formType, formID);
+            }, autoUploadTime);
+        }
+
+        if (pid) {
+            getUnfinished(pid, formType, (lastTid) => {
+                if (lastTid) {
+                    tid = lastTid;
+                }
+            })
+        }
+
+        if (tid) {
+            getData(tid, formType, formID, (data) => {
+                console.debug(data);
+                pid = data.pid;
+                init();
+            });
+        } else {
+            getId(pid, formType, formID, (newTid) => {
+                console.debug('Get new tid: ' + newTid);
+                tid = newTid
+                init();
+            });
+        };
+    });
+
+</script>
+
+</body>
+</html>

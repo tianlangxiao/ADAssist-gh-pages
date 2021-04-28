@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/style.css?v=4.1.0" rel="stylesheet">
+    <link rel="stylesheet" href="../css/chart.css">
+</head>
+<body>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h3 id="scale-title">统计</h3>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div id="scale-chart" class="statis-chart">暂无数据</div>
+            </div>
+            <div id="scale-summary" style="display: none; text-align: center;">
+                该量表的标准评分为 <span id="scale-score">0</span> 分。
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 全局js -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@4.6.0/dist/echarts.min.js"></script>
+<script src="../js/common.js"></script>
+<!-- 自定义js -->
+<script src="../js/content.js?v=1.0.0"></script>
+<script type="text/javascript">
+
+var param = getRequest();
+var tid = param.tid;
+let scaleType = {
+    "1": "一般情况",
+    "2": "认知能力",
+    "3": "匹兹堡",
+    "4": "认知变化",
+    "5": "认知减退",
+    "6": "认知变化(家人)",
+    "7": "日常行为",
+    "8": "简明精神",
+    "9": "蒙特利尔",
+    "10": "认知域",
+    "11": "汉密尔顿",
+    "12": "精神检查",
+    "13": "CDR"
+};
+getData(tid);
+
+function getData(tid) {
+
+    $.ajax({
+        url: "http://par.ict.ac.cn:10000/3/survey/" + tid,
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            if (data.status == 0) {
+                var result = JSON.parse(data.result.data).paramMap;
+                console.log(data);
+
+                // 去除统计无关数据
+                if ('date' in result) {
+                    delete result.date;
+                }
+
+                // 量表标题修改
+                $('#scale-title').text(scaleType[data.result.type.toString()] + '量表统计结果');
+                // 量表统计结果
+                $('#scale-score').text(Object.values(result).reduce(
+                    (sum, item) => sum + parseInt(item),
+                    0  // initial value for summary
+                ));
+                $('#scale-summary').show();
+
+                // 量表柱状图绘制
+                var scaleChart = echarts.init(document.getElementById('scale-chart'));
+                var scaleChartOption = {
+                    toolbox: {
+                        feature: {
+                            saveAsImage: { pixelRatio: 2 }
+                        }
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                    },
+                    xAxis: {
+                        type: 'category',
+                        axisLabel: {
+                            rotate: 45
+                        }
+                    },
+                    yAxis: {},
+                    series: [{
+                        type: 'bar',
+                    }],
+                    dataset: {
+                        // 重构数据，用于柱状图绘制
+                        // [["title1", value1], ["title2", value2], ...]
+                        source: Object.keys(result).map((item, idx) => [`条目 ${idx}`, result[item]])
+                    }
+                }
+                scaleChart.setOption(scaleChartOption);
+            } else {
+                alert(data.reason);
+            }
+        }
+    });
+
+}
+
+</script>
+
+</body>
+</html>

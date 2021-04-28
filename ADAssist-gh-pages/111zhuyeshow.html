@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户</title>
+</head>
+<body>
+
+<h2>一般情况</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>填表时间</th>
+    </tr>
+    </thead>
+    <tbody id="tbody1">
+    </tbody>
+</table>
+<p id="p1"></p>
+<h2>认知能力自评表</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>填表时间</th>
+    </tr>
+    </thead>
+    <tbody id="tbody2">
+    </tbody>
+</table>
+<p id="p2"></p>
+
+<h2>匹兹堡睡眠指数量表</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>填表时间</th>
+    </tr>
+    </thead>
+    <tbody id="tbody3">
+    </tbody>
+</table>
+<h2>认知功能变化评估量表(本人)</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>填表时间</th>
+    </tr>
+    </thead>
+    <tbody id="tbody4">
+    </tbody>
+</table>
+<h2>老年认知功能减退知情者问卷</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>填表时间</th>
+    </tr>
+    </thead>
+    <tbody id="tbody5">
+    </tbody>
+</table>
+<h2>认知功能变化评估(询问家人或照料者)</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>填表时间</th>
+    </tr>
+    </thead>
+    <tbody id="tbody6">
+    </tbody>
+</table>
+<h2>日常生活能力表</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>填表时间</th>
+    </tr>
+    </thead>
+    <tbody id="tbody7">
+    </tbody>
+</table>
+<h2>简易精神状态检查表</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>填表时间</th>
+    </tr>
+    </thead>
+    <tbody id="tbody8">
+    </tbody>
+</table>
+<h2>蒙特利尔认知评估表</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>填表时间</th>
+    </tr>
+    </thead>
+    <tbody id="tbody9">
+    </tbody>
+</table>
+<h2>认知域</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>填表时间</th>
+    </tr>
+    </thead>
+    <tbody id="tbody10">
+    </tbody>
+</table>
+<h2>汉密尔顿抑郁量表</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>填表时间</th>
+    </tr>
+    </thead>
+    <tbody id="tbody11">
+    </tbody>
+</table>
+<h2>神经精神科问卷</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>填表时间</th>
+    </tr>
+    </thead>
+    <tbody id="tbody12">
+    </tbody>
+</table>
+
+<!-- 全局js -->
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="http://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
+<script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.js"></script>
+
+
+<script type="text/javascript">
+    $(function () {
+        var param = getRequest();
+        var pid = param.pid;
+        getData1()
+        getData2()
+        getData3()
+        getData4()
+        getData5()
+        getData6()
+        getData7()
+        getData8()
+        getData9()
+        getData10()
+        getData11()
+        getData12()
+    })
+    function getData1() {
+        var param = getRequest();
+        var pid = param.pid;
+        $.ajax({
+            url: "http://par.ict.ac.cn:10000/3/survey/" + pid + "/1",
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                var list = data.result;
+                if (list) {
+                    var html = "";
+                    for (var i = 0; i < list.length; i++) {
+                        item = JSON.parse(list[i].data).paramMap;
+//                       去重去重去重去重去重去重去重去重
+                        console.log("user item", item);
+                        var d;
+                        if (d == item.date) {
+
+                        } else {
+                            d = item.date;
+                            html += '<tr>' +
+                                '' + pid + '<td><a class="J_menuItem" href="contents/1yibanshow.html?pid=&count=">' + i + '' + (i + 1) + '</a></td>' +
+                                '' + pid + '<td><a class="J_menuItem" href="contents/1yibanshow.html?pid=&count=">' + i + '' + item.date + '</a></td>' +
+                                '' + pid + '<td><a class="J_menuItem" href="contents/1yibanshow.html?pid=&count=">' + i + '' + "open" + '</a></td>' +
+                                '</tr>';
+                        }
+                    }
+                    $("#tbody1").html(html);
+                }
+            }
+        });
+    }
+    function getData2() {
+        console.log("data2")
+        var param = getRequest();
+        var pid = param.pid;
+        $.ajax({
+            url: "http://par.ict.ac.cn:10000/3/survey/" + pid + "/2",
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                var list = data.result;
+                if (list) {
+                    var html = "";
+                    for (var i = 0; i < list.length; i++) {
+                        item = JSON.parse(list[i].data).paramMap;
+                        console.log("user item", item);
+                        html += '<tr>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/2renzhinenglishow.html?pid=&count=">' + i + '' + (i + 1) + '</a></td>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/2renzhinenglishow.html?pid=&count=">' + i + '' + item.date + '</a></td>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/2renzhinenglishow.html?pid=&count=">' + i + '' + "open" + '</a></td>' +
+                            '</tr>';
+                    }
+                    $("#tbody2").html(html);
+                }
+
+            }
+        });
+
+    }
+    function getData3() {
+        var param = getRequest();
+        var pid = param.pid;
+        $.ajax({
+            url: "http://par.ict.ac.cn:10000/3/survey/" + pid + "/3",
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                console.log("userlog", data)
+                var list = data.result;
+                if (list) {
+                    var html = "";
+                    for (var i = 0; i < list.length; i++) {
+                        item = JSON.parse(list[i].data).paramMap;
+                        console.log("user item", item);
+                        html += '<tr>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/3pizibaoshow.html?pid=&count=">' + i + '' + (i + 1) + '</a></td>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/3pizibaoshow.html?pid=&count=">' + i + '' + item.date + '</a></td>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/3pizibaoshow.html?pid=&count=">' + i + '' + "open" + '</a></td>' +
+                            '</tr>';
+                    }
+                    $("#tbody3").html(html);
+                }
+            }
+        });
+
+    }
+    function getData4() {
+        var param = getRequest();
+        var pid = param.pid;
+        $.ajax({
+            url: "http://par.ict.ac.cn:10000/3/survey/" + pid + "/4",
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                console.log("userlog", data)
+                var list = data.result;
+                if (list) {
+                    var html = "";
+                    for (var i = 0; i < list.length; i++) {
+                        item = JSON.parse(list[i].data).paramMap;
+                        console.log("user item", item);
+                        html += '<tr>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/4renzhibianhuashow.html?pid=&count=">' + i + '' + (i + 1) + '</a></td>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/4renzhibianhuashow.html?pid=&count=">' + i + '' + item.date + '</a></td>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/4renzhibianhuashow.html?pid=&count=">' + i + '' + "open" + '</a></td>' +
+                            '</tr>';
+                    }
+                    $("#tbody4").html(html);
+                }
+            }
+        });
+
+    }
+    function getData5() {
+        var param = getRequest();
+        var pid = param.pid;
+        $.ajax({
+            url: "http://par.ict.ac.cn:10000/3/survey/" + pid + "/5",
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                console.log("userlog", data)
+                var list = data.result;
+                if (list) {
+                    var html = "";
+                    for (var i = 0; i < list.length; i++) {
+                        item = JSON.parse(list[i].data).paramMap;
+                        console.log("user item", item);
+                        html += '<tr>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/5renzhijiantuishow.html?pid=&count=">' + i + '' + (i + 1) + '</a></td>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/5renzhijiantuishow.html?pid=&count=">' + i + '' + item.date + '</a></td>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/5renzhijiantuishow.html?pid=&count=">' + i + '' + "open" + '</a></td>' +
+                            '</tr>';
+                    }
+                    $("#tbody5").html(html);
+                }
+            }
+        });
+
+    }
+    function getData6() {
+        var param = getRequest();
+        var pid = param.pid;
+        $.ajax({
+            url: "http://par.ict.ac.cn:10000/3/survey/" + pid + "/6",
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                console.log("userlog", data)
+                var list = data.result;
+                if (list) {
+                    var html = "";
+                    for (var i = 0; i < list.length; i++) {
+                        item = JSON.parse(list[i].data).paramMap;
+                        console.log("user item", item);
+                        html += '<tr>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/6renzhibianhuajiashow.html?pid=&count=">' + i + '' + (i + 1) + '</a></td>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/6renzhibianhuajiashow.html?pid=&count=">' + i + '' + item.date + '</a></td>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/6renzhibianhuajiashow.html?pid=&count=">' + i + '' + "open" + '</a></td>' +
+                            '</tr>';
+                    }
+                    $("#tbody6").html(html);
+                }
+            }
+        });
+
+    }
+    function getData7() {
+        var param = getRequest();
+        var pid = param.pid;
+        $.ajax({
+            url: "http://par.ict.ac.cn:10000/3/survey/" + pid + "/7",
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                console.log("userlog", data)
+                var list = data.result;
+                if (list) {
+                    var html = "";
+                    for (var i = 0; i < list.length; i++) {
+                        item = JSON.parse(list[i].data).paramMap;
+                        console.log("user item", item);
+                        html += '<tr>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/7richangshow.html?pid=&count=">' + i + '' + (i + 1) + '</a></td>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/7richangshow.html?pid=&count=">' + i + '' + item.date + '</a></td>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/7richangshow.html?pid=&count=">' + i + '' + "open" + '</a></td>' +
+                            '</tr>';
+                    }
+                    $("#tbody7").html(html);
+                }
+            }
+        });
+
+    }
+    function getData8() {
+        var param = getRequest();
+        var pid = param.pid;
+        $.ajax({
+            url: "http://par.ict.ac.cn:10000/3/survey/" + pid + "/8",
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                console.log("userlog", data)
+                var list = data.result;
+                if (list) {
+                    var html = "";
+                    for (var i = 0; i < list.length; i++) {
+                        item = JSON.parse(list[i].data).paramMap;
+                        console.log("user item", item);
+                        html += '<tr>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/8jianmingjingshenshow.html?pid=&count=">' + i + '' + (i + 1) + '</a></td>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/8jianmingjingshenshow.html?pid=&count=">' + i + '' + item.date + '</a></td>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/8jianmingjingshenshow.html?pid=&count=">' + i + '' + "open" + '</a></td>' +
+                            '</tr>';
+                    }
+                    $("#tbody8").html(html);
+                }
+            }
+        });
+
+    }
+    function getData9() {
+        var param = getRequest();
+        var pid = param.pid;
+        $.ajax({
+            url: "http://par.ict.ac.cn:10000/3/survey/" + pid + "/9",
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                console.log("userlog", data)
+                var list = data.result;
+                if (list) {
+                    var html = "";
+                    for (var i = 0; i < list.length; i++) {
+                        item = JSON.parse(list[i].data).paramMap;
+                        console.log("user item", item);
+                        html += '<tr>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/9mengteliershow.html?pid=&count=">' + i + '' + (i + 1) + '</a></td>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/9mengteliershow.html?pid=&count=">' + i + '' + item.date + '</a></td>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/9mengteliershow.html?pid=&count=">' + i + '' + "open" + '</a></td>' +
+                            '</tr>';
+                    }
+                    $("#tbody9").html(html);
+                }
+            }
+        });
+
+    }
+    function getData10() {
+        var param = getRequest();
+        var pid = param.pid;
+        $.ajax({
+            url: "http://par.ict.ac.cn:10000/3/survey/" + pid + "/10",
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                console.log("userlog", data)
+                var list = data.result;
+                if (list) {
+                    var html = "";
+                    for (var i = 0; i < list.length; i++) {
+                        item = JSON.parse(list[i].data).paramMap;
+                        console.log("user item", item);
+                        html += '<tr>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/10renzhiyushow.html?pid=&count=">' + i + '' + (i + 1) + '</a></td>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/10renzhiyushow.html?pid=&count=">' + i + '' + item.date + '</a></td>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/10renzhiyushow.html?pid=&count=">' + i + '' + "open" + '</a></td>' +
+                            '</tr>';
+                    }
+                    $("#tbody10").html(html);
+                }
+            }
+        });
+
+    }
+    function getData11() {
+        var param = getRequest();
+        var pid = param.pid;
+        $.ajax({
+            url: "http://par.ict.ac.cn:10000/3/survey/" + pid + "/11",
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                console.log("userlog", data)
+                var list = data.result;
+                if (list) {
+                    var html = "";
+                    for (var i = 0; i < list.length; i++) {
+                        item = JSON.parse(list[i].data).paramMap;
+                        console.log("user item", item);
+                        html += '<tr>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/11hanmierdunshow.html?pid=&count=">' + i + '' + (i + 1) + '</a></td>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/11hanmierdunshow.html?pid=&count=">' + i + '' + item.date + '</a></td>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/11hanmierdunshow.html?pid=&count=">' + i + '' + "open" + '</a></td>' +
+                            '</tr>';
+                    }
+                    $("#tbody11").html(html);
+                }
+            }
+        });
+
+    }
+    function getData12() {
+        var param = getRequest();
+        var pid = param.pid;
+        $.ajax({
+            url: "http://par.ict.ac.cn:10000/3/survey/" + pid + "/12",
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                console.log("userlog", data)
+                var list = data.result;
+                if (list) {
+                    var html = "";
+                    for (var i = 0; i < list.length; i++) {
+                        item = JSON.parse(list[i].data).paramMap;
+                        console.log("user item", item);
+                        html += '<tr>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/12jingshenshow.html?pid=&count=">' + i + '' + (i + 1) + '</a></td>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/12jingshenshow.html?pid=&count=">' + i + '' + item.date + '</a></td>' +
+                            '' + pid + '<td><a class="J_menuItem" href="contents/12jingshenshow.html?pid=&count=">' + i + '' + "open" + '</a></td>' +
+                            '</tr>';
+                    }
+                    $("#tbody12").html(html);
+                }
+            }
+        });
+
+    }
+
+
+</script>
+</body>
+</html>

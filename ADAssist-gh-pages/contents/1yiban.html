@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一般情况</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link href="../css/forScale.css" rel="stylesheet">
+    <link href="../css/scale_style.css" rel="stylesheet">
+</head>
+<body>
+<!-- <h1 align="center">一般情况</h1> -->
+<h2 id="pname"></h2>
+<form id="form1">
+
+    <ul>
+        <p>填写时间:</p>
+        <input type="date" placeholder="填写日期,如:20190101" name="date">
+
+        <li><p>诊断:</p>
+
+            <input class="radio_type" type="radio" name="diagnosis" value="正常" checked>正常
+            <input class="radio_type" type="radio" name="diagnosis" value="SCD">SCD
+            <input class="radio_type" type="radio" name="diagnosis" value="MCI">MCI
+            <input class="radio_type" type="radio" name="diagnosis" value="AD">AD
+            <input class="radio_type" type="radio" name="diagnosis" value="Mix dementia">Mix dementia<br>
+            <input class="radio_type" type="radio" name="diagnosis" value="VaD">VaD
+            <input class="radio_type" type="radio" name="diagnosis" value="FTD">FTD
+            <input class="radio_type" type="radio" name="diagnosis" value="LBD">LBD
+            <input class="radio_type" type="radio" name="diagnosis" value="Cognitive impaiment待定">Cognitive impaiment待定
+            <input class="radio_type" type="radio" name="diagnosis" value="其他" checked>其他
+
+        </li>
+        <div class="d-flex flex-wrap justify-content-center justify-content-md-around">
+        <li class="flex-grow-1">
+            <p>家庭住址:</p>
+            <input class="radio_type" type="text" name="address">
+        </li>
+        <li class="flex-grow-1">
+            <p>身份证号:</p>
+            <input class="radio_type" type="text" maxlength="18" name="cid">
+        </li>
+        </div>
+        <div class="d-flex flex-wrap justify-content-center justify-content-md-around">
+        <li class="flex-grow-1">
+            <p>身高:</p>
+            <input class="radio_type" type="text" placeholder="厘米" maxlength="3" name="height">
+        </li>
+        <li class="flex-grow-1">
+            <p>体重:</p>
+            <input class="radio_type" type="text" placeholder="公斤" maxlength="3" name="weight">
+        </li>
+        </div>
+        <li><p>受测者母语:</p>
+
+            <input class="radio_type" type="radio" value="普通话" name="testdate" checked>普通话
+            <input class="radio_type" type="radio" value="粤语" name="testdate">粤语
+            <input class="radio_type" type="radio" value="其他" name="testdate">其他
+
+        </li>
+        <li><p>测试语言:</p>
+            <input class="radio_type" type="radio" value="普通话" name="subjlang1" checked>普通话
+            <input class="radio_type" type="radio" value="粤语" name="subjlang1">粤语
+            <input class="radio_type" type="radio" value="其他" name="subjlang1">其他
+        </li>
+        <li><p>教育水平:</p>
+            <input class="radio_type" type="radio" value="文盲" name="testlang1" checked>文盲
+            <input class="radio_type" type="radio" value="小学或私塾(1-6年)" name="testlang1">小学或私塾(1-6年)
+            <input class="radio_type" type="radio" value="初中(7-9年)" name="testlang1">初中(7-9年)<br>
+            <input class="radio_type" type="radio" value="高中(10-12年)" name="testlang1">高中(10-12年)
+            <input class="radio_type" type="radio" value="大专(13-15年)" name="testlang1">大专(13-15年)
+            <input class="radio_type" type="radio" value="大学及以上(16年以上)" name="testlang1">大学及以上(16年以上)
+        </li>
+    </ul>
+
+    <h2>您的职业及生活情况</h2>
+    <ol>
+        <li><p>您目前或以前的主要职业:</p>
+            <input class="radio_type" type="radio" value="农林牧渔水利业人员" name="occupation1" checked>农林牧渔水利业人员
+            <input class="radio_type" type="radio" value="工人" name="occupation1">工人
+            <input class="radio_type" type="radio" value="各类专业人员" name="occupation1">各类专业人员
+            <input class="radio_type" type="radio" value="行政人员" name="occupation1">行政人员<br>
+            <input class="radio_type" type="radio" value="服务性工作者" name="occupation1">服务性工作者
+            <input class="radio_type" type="radio" value="家务" name="occupation1">家务
+            <input class="radio_type" type="radio" value="军人" name="occupation1">军人
+            <input class="radio_type" type="radio" value="其他" name="occupation1">其他
+
+        </li>
+        <li><p>是否经常有人在您面前吸烟?</p>
+
+            <input class="radio_type" type="radio" value="是" name="othersmoke1" checked>是
+            <input class="radio_type" type="radio" value="否" name="othersmoke1">否
+
+        </li>
+        <li><p>您的吸烟情况?</p>
+
+            <input class="radio_type" type="radio" value="从不吸" name="smoke1" checked>从不吸
+            <input class="radio_type" type="radio" value="偶尔吸" name="smoke1">偶尔吸
+            <input class="radio_type" type="radio" value="以前吸,但近一年不吸" name="smoke1">以前吸,但近一年不吸
+            <input class="radio_type" type="radio" value="现在吸" name="smoke1">现在吸
+
+        </li>
+        <li><p>您吸烟多少年了?</p>
+
+            <input class="radio_type" type="radio" value="10年以下" name="smokeyear1" checked>10年以下
+            <input class="radio_type" type="radio" value="11-20年" name="smokeyear1">11-20年
+            <input class="radio_type" type="radio" value="21-30年" name="smokeyear1">21-30年
+            <input class="radio_type" type="radio" value="31-40年" name="smokeyear1">31-40年
+            <input class="radio_type" type="radio" value="40年以上" name="smokeyear1">40年以上
+
+        </li>
+        <li><p>您平均每天吸多少支烟?</p>
+
+            <input class="radio_type" type="radio" value="半包以下" name="smokeperday1" checked>半包以下
+            <input class="radio_type" type="radio" value="1-2包" name="smokeperday1">1-2包
+            <input class="radio_type" type="radio" value="2-3包" name="smokeperday1">2-3包
+            <input class="radio_type" type="radio" value="3包以上" name="smokeperday1">3包以上
+
+        </li>
+        <li><p>您的饮酒情况?</p>
+
+            <input class="radio_type" type="radio" value="从不饮" name="drink1" checked>从不饮
+            <input class="radio_type" type="radio" value="偶尔饮,每周小于2次" name="drink1">偶尔饮,每周小于2次
+            <input class="radio_type" type="radio" value="以前饮,近一年不饮" name="drink1">以前饮,近一年不饮
+            <input class="radio_type" type="radio" value="现在饮" name="drink1">现在饮
+
+        </li>
+        <li><p>您目前的婚姻状况是什么?</p>
+
+            <input class="radio_type" type="radio" value="未婚" name="marriage1" checked>未婚
+            <input class="radio_type" type="radio" value="在婚" name="marriage1">在婚
+            <input class="radio_type" type="radio" value="离婚" name="marriage1">离婚
+            <input class="radio_type" type="radio" value="丧偶" name="marriage1">丧偶
+            <input class="radio_type" type="radio" value="其他" name="marriage1">其他
+
+        </li>
+        <h2>您的运动情况</h2>
+        <li><p>您多久做一次运动?</p>
+
+            <input class="radio_type" type="radio" value="每天" name="sport1" checked>每天
+            <input class="radio_type" type="radio" value="2-3天" name="sport1">2-3天
+            <input class="radio_type" type="radio" value="每周一次" name="sport1">每周一次
+            <input class="radio_type" type="radio" value="不运动" name="sport1">不运动
+
+        </li>
+        <li><p>您参加体育运动的形式是什么?</p>
+
+            <input class="radio_type" type="radio" value="散步" name="sporttype1" checked>散步
+            <input class="radio_type" type="radio" value="打球" name="sporttype1">打球
+            <input class="radio_type" type="radio" value="太极拳" name="sporttype1">太极拳
+            <input class="radio_type" type="radio" value="广场舞" name="sporttype1">广场舞
+            <input class="radio_type" type="radio" value="其他" name="sporttype1">其他
+
+        </li>
+        <li><p>您每周体育运动所花费的时间范围?</p>
+
+            <input class="radio_type" type="radio" value="2小时以内" name="sporttime1" checked>2小时以内
+            <input class="radio_type" type="radio" value="2-6小时" name="sporttime1">2-6小时
+            <input class="radio_type" type="radio" value="7-12小时" name="sporttime1">7-12小时
+            <input class="radio_type" type="radio" value="13小时以上" name="sporttime1">13小时以上
+            <input class="radio_type" type="radio" value="其他" name="sporttime1">其他
+
+        </li>
+        <li><p>您喜欢什么时间运动?</p>
+
+            <input class="radio_type" type="radio" value="上午" name="whensport1" checked>上午
+            <input class="radio_type" type="radio" value="中午" name="whensport1">中午
+            <input class="radio_type" type="radio" value="下午" name="whensport1">下午
+            <input class="radio_type" type="radio" value="晚上" name="whensport1">晚上
+            <input class="radio_type" type="radio" value="其他" name="whensport1">其他
+
+        </li>
+        <h2>您的饮食情况</h2>
+        <li><p>您主食以什么为主?</p>
+
+            <input class="radio_type" type="radio" value="大米" name="mainfood1" checked>大米
+            <input class="radio_type" type="radio" value="面食" name="mainfood1">面食
+            <input class="radio_type" type="radio" value="其他" name="mainfood1">其他
+
+        </li>
+        <li><p>您的烹饪用油是?</p>
+
+            <input class="radio_type" type="radio" value="完全植物油" name="oil1" checked>完全植物油
+            <input class="radio_type" type="radio" value="主要植物油" name="oil1">主要植物油
+            <input class="radio_type" type="radio" value="基本各半" name="oil1">基本各半
+            <input class="radio_type" type="radio" value="主要动物油" name="oil1">主要动物油
+
+        </li>
+        <li><p>您平均一周吃几次肉类食物?</p>
+            <input class="radio_type" type="radio" value="少于1次基本不吃" name="meatperweek1" checked>少于1次基本不吃
+            <input class="radio_type" type="radio" value="1至2次" name="meatperweek1">1至2次
+            <input class="radio_type" type="radio" value="3至5次" name="meatperweek1">3至5次
+            <input class="radio_type" type="radio" value="几乎每天" name="meatperweek1">几乎每天
+
+        </li>
+        <li><p>您常吃什么类型的肉?</p>
+
+            <input class="radio_type" type="radio" value="不吃肉" name="meattype1" checked>不吃肉
+            <input class="radio_type" type="radio" value="瘦肉为主" name="meattype1">瘦肉为主
+            <input class="radio_type" type="radio" value="肥瘦各半" name="meattype1">肥瘦各半
+            <input class="radio_type" type="radio" value="肥肉为主" name="meattype1">肥肉为主
+
+        </li>
+        <li><p>您平时每周吃蔬菜水果?</p>
+
+            <input class="radio_type" type="radio" value="1斤一下" name="vegperweek1" checked>1斤一下
+            <input class="radio_type" type="radio" value="1斤至3斤" name="vegperweek1">1斤至3斤
+            <input class="radio_type" type="radio" value="3斤以上" name="vegperweek1">3斤以上
+
+        </li>
+        <li><p>您平时吃饭口味偏轻(淡)还是偏重(咸)?</p>
+
+            <input class="radio_type" type="radio" value="口轻" name="flavor1" checked>口轻
+            <input class="radio_type" type="radio" value="一般" name="flavor1">一般
+            <input class="radio_type" type="radio" value="口重" name="flavor1">口重
+
+        </li>
+        <h2>您的病史</h2>
+        <li><p>高血压史?</p>
+
+            <input class="radio_type" type="radio" value="是" name="hbp1" checked>是
+            <input class="radio_type" type="radio" value="否" name="hbp1">否
+            <input class="radio_type" type="radio" value="不清楚" name="hbp1">不清楚
+
+        </li>
+        <li><p>您被发现有高血压多少年了?</p>
+
+            <input class="radio_type" type="number" name="hbpyear">年
+
+        </li>
+        <li><p>您是否服用降压药?</p>
+
+            <input class="radio_type" type="radio" value="是" name="hbpdrug1" checked>是
+            <input class="radio_type" type="radio" value="否" name="hbpdrug1">否
+            <input class="radio_type" type="radio" value="不清楚" name="hbpdrug1">不清楚
+
+        </li>
+        <li><p>糖尿病史?</p>
+
+            <input class="radio_type" type="radio" value="是" name="dm1" checked>是
+            <input class="radio_type" type="radio" value="否" name="dm1">否
+            <input class="radio_type" type="radio" value="不清楚" name="dm1">不清楚
+
+        </li>
+        <li><p>您被发现有糖尿病多少年了?</p>
+
+            <input class="radio_type" type="number" name="dmyear">年
+
+        </li>
+        <li><p>您是否服用降糖药?</p>
+
+            <input class="radio_type" type="radio" value="是" name="dmdrug1" checked>是
+            <input class="radio_type" type="radio" value="否" name="dmdrug1">否
+            <input class="radio_type" type="radio" value="不清楚" name="dmdrug1">不清楚
+
+        </li>
+        <li><p>您是否服用胰岛素注射?</p>
+
+            <input class="radio_type" type="radio" value="是" name="dminsulin1" checked>是
+            <input class="radio_type" type="radio" value="否" name="dminsulin1">否
+            <input class="radio_type" type="radio" value="不清楚" name="dminsulin1">不清楚
+
+        </li>
+        <li><p>心率失常史?</p>
+
+            <input class="radio_type" type="radio" value="是" name="arhythmia1" checked>是
+            <input class="radio_type" type="radio" value="否" name="arhythmia1">否
+            <input class="radio_type" type="radio" value="不清楚" name="arhythmia1">不清楚
+
+        </li>
+        <li><p>冠心病史?</p>
+
+            <input class="radio_type" type="radio" value="是" name="chd1" checked>是
+            <input class="radio_type" type="radio" value="否" name="chd1">否
+            <input class="radio_type" type="radio" value="不清楚" name="chd1">不清楚
+
+        </li>
+        <li><p>高脂血症?</p>
+
+            <input class="radio_type" type="radio" value="是" name="hlp1" checked>是
+            <input class="radio_type" type="radio" value="否" name="hlp1">否
+            <input class="radio_type" type="radio" value="不清楚" name="hlp1">不清楚
+
+        </li>
+        <li><p>脑中风(梗塞或出血)?</p>
+
+            <input class="radio_type" type="radio" value="是" name="stroke1" checked>是
+            <input class="radio_type" type="radio" value="否" name="stroke1">否
+            <input class="radio_type" type="radio" value="不清楚" name="stroke1">不清楚
+
+        </li>
+        <li><p>如果有过脑中风史,您是在多少年前被诊断的?</p>
+
+            <input class="radio_type" type="number" name="strokeyear">年
+
+        </li>
+        <li><p>脑部手术?</p>
+
+            <input class="radio_type" type="radio" value="是" name="brainsurg1" checked>是
+            <input class="radio_type" type="radio" value="否" name="brainsurg1">否
+            <input class="radio_type" type="radio" value="不清楚" name="brainsurg1">不清楚
+
+        </li>
+        <li><p>脑部外伤?</p>
+
+            <input class="radio_type" type="radio" value="是" name="braintrauma1" checked>是
+            <input class="radio_type" type="radio" value="否" name="braintrauma1">否
+            <input class="radio_type" type="radio" value="不清楚" name="braintrauma1">不清楚
+
+        </li>
+        <li><p>帕金森病?</p>
+
+            <input class="radio_type" type="radio" value="是" name="pd1" checked>是
+            <input class="radio_type" type="radio" value="否" name="pd1">否
+            <input class="radio_type" type="radio" value="不清楚" name="pd1">不清楚
+
+        </li>
+        <li><p>痴呆?</p>
+
+            <input class="radio_type" type="radio" value="是" name="dementia1" checked>是
+            <input class="radio_type" type="radio" value="否" name="dementia1">否
+            <input class="radio_type" type="radio" value="不清楚" name="dementia1">不清楚
+
+        </li>
+        <li><p>您是否有亲属患痴呆症?</p>
+
+            <input class="radio_type" type="radio" value="是" name="rdementia1" checked>是
+            <input class="radio_type" type="radio" value="否" name="rdementia1">否
+            <input class="radio_type" type="radio" value="不清楚" name="rdementia1">不清楚
+
+        </li>
+        <li><p>抑郁症?</p>
+
+            <input class="radio_type" type="radio" value="是" name="depression1" checked>是
+            <input class="radio_type" type="radio" value="否" name="depression1">否
+            <input class="radio_type" type="radio" value="不清楚" name="depression1">不清楚
+
+        </li>
+        <li><p>焦虑症?</p>
+
+            <input class="radio_type" type="radio" value="是" name="anxiety1" checked>是
+            <input class="radio_type" type="radio" value="否" name="anxiety1">否
+            <input class="radio_type" type="radio" value="不清楚" name="anxiety1">不清楚
+
+        </li>
+        <li><p>亨廷顿病?</p>
+
+            <input class="radio_type" type="radio" value="是" name="huntington1" checked>是
+            <input class="radio_type" type="radio" value="否" name="huntington1">否
+            <input class="radio_type" type="radio" value="不清楚" name="huntington1">不清楚
+
+        </li>
+        <li><p>失眠或睡眠失调,并使用药物?</p>
+
+            <input class="radio_type" type="radio" value="是,服药" name="insomnia1" checked>是,服药
+            <input class="radio_type" type="radio" value="是,未服药" name="insomnia1">是,未服药
+            <input class="radio_type" type="radio" value="否" name="insomnia1">否
+
+        </li>
+        <li><p>癫痫?</p>
+
+            <input class="radio_type" type="radio" value="是" name="epilepsy1" checked>是
+            <input class="radio_type" type="radio" value="否" name="epilepsy1">否
+            <input class="radio_type" type="radio" value="不清楚" name="epilepsy1">不清楚
+        </li>
+        <li><p>双向情感障碍?</p>
+            <input class="radio_type" type="radio" value="是" name="bidisorder1" checked>是
+            <input class="radio_type" type="radio" value="否" name="bidisorder1">否
+            <input class="radio_type" type="radio" value="不清楚" name="bidisorder1">不清楚
+        </li>
+        <li><p>肾炎?</p>
+            <input class="radio_type" type="radio" value="是" name="nephritis1" checked>是
+            <input class="radio_type" type="radio" value="否" name="nephritis1">否
+            <input class="radio_type" type="radio" value="不清楚" name="nephritis1">不清楚
+        </li>
+        <li><p>肿瘤及名称?</p>
+
+            <input class="radio_type radio_collapse" type="radio" value="是" name="tumor1" checked>是
+            <input class="radio_type radio_collapse" type="radio" value="否" name="tumor1">否
+            <input class="radio_type radio_collapse" type="radio" value="不清楚" name="tumor1">不清楚
+            <div class="collapse card" id="tumor1-collapse">
+                <div class="card-body">
+                    <span for="tumor1a">名称：</span><input class="radio_type" type="text" name="tumor1a">
+                </div>
+            </div>
+
+        </li>
+    </ol>
+    <button id="formSubmit" type="submit">提交</button>
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/scale_style.js"></script>
+
+<script type="text/javascript">
+
+    var formType = 1;
+    var tid = getRequest().tid;
+    var pid = getRequest().pid;
+
+    $(function () {
+        var pn = $.cookie('pname');
+        $("#pname").text(pn);
+        let formID = "#form1";
+        let autoUploadTime = 20 * 1000;
+
+        let init = () => {
+            initData(tid, pid, formType, formID);
+
+            window.setInterval(function () {
+                // console.info("数据次数:")
+                initForm(tid, pid, formType, formID);
+            }, autoUploadTime);
+        }
+
+        if (pid) {
+            getUnfinished(pid, formType, (lastTid) => {
+                if (lastTid) {
+                    tid = lastTid;
+                }
+            })
+        }
+
+        if (tid) {
+            getData(tid, formType, formID, (data) => {
+                console.debug(data);
+                pid = data.pid;
+                init();
+            });
+        } else {
+            getId(pid, formType, formID, (newTid) => {
+                console.debug('Get new tid: ' + newTid);
+                tid = newTid;
+                init();
+            });
+        };
+    });
+
+</script>
+</body>
+
+</html>

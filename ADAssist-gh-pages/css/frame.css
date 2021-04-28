@@ -1,0 +1,16 @@
+.frameMenu .logo {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 22pt;
+    vertical-align: middle;
+}
+
+.frameMenu .logo img {
+    width: auto;
+    background: none;
+}
+
+.frameMenu .logo div {
+    display: inline-block;
+    margin: 0.2em;
+}

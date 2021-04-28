@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <!-- Google Chrome Frame也可以让IE用上Chrome的引擎: -->
+    <meta name="renderer" content="webkit">
+    <!--国产浏览器高速模式-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="AD助手" />
+    <!-- 作者 -->
+    <meta name="revised" content="AD助手.v1, 2019/12/15" />
+    <!-- 定义页面的最新版本 -->
+    <meta name="description" content="网站简介" />
+    <!-- 网站简介 -->
+    <meta name="keywords" content="搜索关键字，以半角英文逗号隔开" />
+    <title>AD助手</title>
+
+    <!-- 公共样式 开始 -->
+    <link rel="stylesheet" type="text/css" href="../css/base.css">
+    <link rel="stylesheet" type="text/css" href="../css/iconfont.css">
+    <script type="text/javascript" src="../framework/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../layui/css/layui.css">
+    <script type="text/javascript" src="../layui/layui.js"></script>
+    <!-- 滚动条插件 -->
+    <link rel="stylesheet" type="text/css" href="../css/jquery.mCustomScrollbar.css">
+    <script src="../framework/jquery-ui-1.10.4.min.js"></script>
+    <script src="../framework/jquery.mousewheel.min.js"></script>
+    <script src="../framework/jquery.mCustomScrollbar.min.js"></script>
+    <script src="../framework/cframe.js"></script><!-- 仅供所有子页面使用 -->
+    <!-- 公共样式 结束 -->
+    <style>
+        .button {
+            border: none;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 15px;
+            border: 5pt solid #0a6aa1;
+        }
+        a:hover{
+            color: #0000cc;
+            text-decoration:underline;
+            font-weight: bold;
+        }
+        a{
+            color: #0000cc;
+            font-size: medium;
+        }
+    </style>
+</head>
+<body>
+<div style="width:100%; height: 100%; position: absolute; margin: 0;" scrolling="yes">
+    <div style="text-align:center; height: 13%; width: 100%; position: relative;">
+        <button class="button" id="scale_self_function">认知能力他评表</button>
+    </div>
+    <div style="width: 100%; height: 15%; position: relative; text-align: center; display: flex;justify-content: center;">
+        <div style="width: 10%; height: 100%; padding: 0px 8px;">
+            <a href="javascript:void(0)" id="renzhijiantui">老年人认知功能减退知情问卷</a>
+        </div>
+        <div style="width: 10%; height: 100%; padding: 0px 8px;">
+            <a href="javascript:void(0)" id="renzhibianhuajia">认知功能变化评估(询问家人或照顾者)</a>
+        </div>
+        <div style="width: 10%; height: 100%; padding: 0px 8px;">
+            <a href="javascript:void(0)" id="richang">日常生活能力表(ADL)</a>
+        </div>
+        <div style="width: 10%; height: 100%; padding: 0px 8px;">
+            <a href="javascript:void(0)" id="jianmingjingshen">简易神经状态检查表(MMSE)</a>
+        </div>
+        <div style="width: 10%; height: 100%; padding: 0px 8px;">
+            <a href="javascript:void(0)" id="mengtelier">蒙特利尔认知评估(MoCA-B)</a>
+        </div>
+        <div style="width: 10%; height: 100%; padding: 0px 8px;">
+            <a href="javascript:void(0)" id="renzhiyu">认知域</a>
+        </div>
+        <div style="width: 10%; height: 100%; padding: 0px 8px;">
+            <a href="javascript:void(0)" id="cdr">CDR</a>
+        </div>
+        <div style="width: 10%; height: 100%; padding: 0px 8px;">
+            <a href="javascript:void(0)" id="hanmierdun">汉密尔顿抑郁量表(HAMD)</a>
+        </div>
+        <div style="width: 10%; height: 100%; padding: 0px 8px;">
+            <a href="javascript:void(0)" id="jingshen">神经精神科问卷(NPI)</a>
+        </div>
+    </div>
+    <div style="width: 100%; height: 75%; position: relative; display: flex;justify-content: center;">
+        <iframe id="iframe_contents" style="width: 100%;"  ></iframe>
+    </div>
+</div>
+<!-- 全局js -->
+<script src="../js/jquery.min.js?v=2.1.4"></script>
+<script src="http://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/bootstrap.min.js?v=3.3.6"></script>
+<script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.js"></script>
+
+
+<script type="text/javascript">
+    $(function () {
+        var param = getRequest();
+        var pid = param.pid;
+        var renzhijiantui = document.getElementById('renzhijiantui');
+        var renzhibianhuajia = document.getElementById('renzhibianhuajia');
+        var richang = document.getElementById('richang');
+        var jianmingjingshen = document.getElementById('jianmingjingshen');
+        var mengtelier = document.getElementById('mengtelier');
+        var renzhiyu = document.getElementById('renzhiyu');
+        var cdr = document.getElementById('cdr');
+        var hanmierdun = document.getElementById('hanmierdun');
+        var jingshen = document.getElementById('jingshen');
+
+        var newLink = '5renzhijiantui.html'+ "?pid=" + pid;
+        $("#iframe_contents").attr("src", newLink);
+        renzhijiantui.style.textDecoration = "underline";
+        renzhijiantui.style.fontWeight = "bold";
+
+        renzhijiantui.onclick = function() {
+            renzhijiantui.style.textDecoration = "underline";
+            renzhijiantui.style.fontWeight = "bold";
+            renzhibianhuajia.style.textDecoration = "none";
+            renzhibianhuajia.style.fontWeight = "normal";
+            richang.style.textDecoration = "none";
+            richang.style.fontWeight = "normal";
+            jianmingjingshen.style.textDecoration = "none";
+            jianmingjingshen.style.fontWeight = "normal";
+            mengtelier.style.textDecoration = "none";
+            mengtelier.style.fontWeight = "normal";
+            renzhiyu.style.textDecoration = "none";
+            renzhiyu.style.fontWeight = "normal";
+            cdr.style.textDecoration = "none";
+            cdr.style.fontWeight = "normal";
+            hanmierdun.style.textDecoration = "none";
+            hanmierdun.style.fontWeight = "normal";
+            jingshen.style.textDecoration = "none";
+            jingshen.style.fontWeight = "normal";
+            var newLink = '5renzhijiantui.html'+ "?pid=" + pid;
+            $("#iframe_contents").attr("src", newLink);
+        }
+
+        renzhibianhuajia.onclick = function() {
+            renzhijiantui.style.textDecoration = "none";
+            renzhijiantui.style.fontWeight = "normal";
+            renzhibianhuajia.style.textDecoration = "underline";
+            renzhibianhuajia.style.fontWeight = "bold";
+            richang.style.textDecoration = "none";
+            richang.style.fontWeight = "normal";
+            jianmingjingshen.style.textDecoration = "none";
+            jianmingjingshen.style.fontWeight = "normal";
+            mengtelier.style.textDecoration = "none";
+            mengtelier.style.fontWeight = "normal";
+            renzhiyu.style.textDecoration = "none";
+            renzhiyu.style.fontWeight = "normal";
+            cdr.style.textDecoration = "none";
+            cdr.style.fontWeight = "normal";
+            hanmierdun.style.textDecoration = "none";
+            hanmierdun.style.fontWeight = "normal";
+            jingshen.style.textDecoration = "none";
+            jingshen.style.fontWeight = "normal";
+            var newLink = '6renzhibianhuajia.html'+ "?pid=" + pid;
+            $("#iframe_contents").attr("src", newLink);
+        }
+
+        richang.onclick = function() {
+            renzhijiantui.style.textDecoration = "none";
+            renzhijiantui.style.fontWeight = "normal";
+            renzhibianhuajia.style.textDecoration = "none";
+            renzhibianhuajia.style.fontWeight = "normal";
+            richang.style.textDecoration = "underline";
+            richang.style.fontWeight = "bold";
+            jianmingjingshen.style.textDecoration = "none";
+            jianmingjingshen.style.fontWeight = "normal";
+            mengtelier.style.textDecoration = "none";
+            mengtelier.style.fontWeight = "normal";
+            renzhiyu.style.textDecoration = "none";
+            renzhiyu.style.fontWeight = "normal";
+            cdr.style.textDecoration = "none";
+            cdr.style.fontWeight = "normal";
+            hanmierdun.style.textDecoration = "none";
+            hanmierdun.style.fontWeight = "normal";
+            jingshen.style.textDecoration = "none";
+            jingshen.style.fontWeight = "normal";
+            var newLink = '7richang.html'+ "?pid=" + pid;
+            $("#iframe_contents").attr("src", newLink);
+        }
+
+        jianmingjingshen.onclick = function() {
+            renzhijiantui.style.textDecoration = "none";
+            renzhijiantui.style.fontWeight = "normal";
+            renzhibianhuajia.style.textDecoration = "none";
+            renzhibianhuajia.style.fontWeight = "normal";
+            richang.style.textDecoration = "none";
+            richang.style.fontWeight = "normal";
+            jianmingjingshen.style.textDecoration = "underline";
+            jianmingjingshen.style.fontWeight = "bold";
+            mengtelier.style.textDecoration = "none";
+            mengtelier.style.fontWeight = "normal";
+            renzhiyu.style.textDecoration = "none";
+            renzhiyu.style.fontWeight = "normal";
+            cdr.style.textDecoration = "none";
+            cdr.style.fontWeight = "normal";
+            hanmierdun.style.textDecoration = "none";
+            hanmierdun.style.fontWeight = "normal";
+            jingshen.style.textDecoration = "none";
+            jingshen.style.fontWeight = "normal";
+            var newLink = '8jianmingjingshen.html'+ "?pid=" + pid;
+            $("#iframe_contents").attr("src", newLink);
+        }
+
+        mengtelier.onclick = function() {
+            renzhijiantui.style.textDecoration = "none";
+            renzhijiantui.style.fontWeight = "normal";
+            renzhibianhuajia.style.textDecoration = "none";
+            renzhibianhuajia.style.fontWeight = "normal";
+            richang.style.textDecoration = "none";
+            richang.style.fontWeight = "normal";
+            jianmingjingshen.style.textDecoration = "none";
+            jianmingjingshen.style.fontWeight = "normal";
+            mengtelier.style.textDecoration = "underline";
+            mengtelier.style.fontWeight = "bold";
+            renzhiyu.style.textDecoration = "none";
+            renzhiyu.style.fontWeight = "normal";
+            cdr.style.textDecoration = "none";
+            cdr.style.fontWeight = "normal";
+            hanmierdun.style.textDecoration = "none";
+            hanmierdun.style.fontWeight = "normal";
+            jingshen.style.textDecoration = "none";
+            jingshen.style.fontWeight = "normal";
+            var newLink = '9mengtelier.html'+ "?pid=" + pid;
+            $("#iframe_contents").attr("src", newLink);
+        }
+
+        renzhiyu.onclick = function() {
+            renzhijiantui.style.textDecoration = "none";
+            renzhijiantui.style.fontWeight = "normal";
+            renzhibianhuajia.style.textDecoration = "none";
+            renzhibianhuajia.style.fontWeight = "normal";
+            richang.style.textDecoration = "none";
+            richang.style.fontWeight = "normal";
+            jianmingjingshen.style.textDecoration = "none";
+            jianmingjingshen.style.fontWeight = "normal";
+            mengtelier.style.textDecoration = "none";
+            mengtelier.style.fontWeight = "normal";
+            renzhiyu.style.textDecoration = "underline";
+            renzhiyu.style.fontWeight = "bold";
+            cdr.style.textDecoration = "none";
+            cdr.style.fontWeight = "normal";
+            hanmierdun.style.textDecoration = "none";
+            hanmierdun.style.fontWeight = "normal";
+            jingshen.style.textDecoration = "none";
+            jingshen.style.fontWeight = "normal";
+            var newLink = '10renzhiyu.html'+ "?pid=" + pid;
+            $("#iframe_contents").attr("src", newLink);
+        }
+
+        cdr.onclick = function() {
+            renzhijiantui.style.textDecoration = "none";
+            renzhijiantui.style.fontWeight = "normal";
+            renzhibianhuajia.style.textDecoration = "none";
+            renzhibianhuajia.style.fontWeight = "normal";
+            richang.style.textDecoration = "none";
+            richang.style.fontWeight = "normal";
+            jianmingjingshen.style.textDecoration = "none";
+            jianmingjingshen.style.fontWeight = "normal";
+            mengtelier.style.textDecoration = "none";
+            mengtelier.style.fontWeight = "normal";
+            renzhiyu.style.textDecoration = "underline";
+            renzhiyu.style.fontWeight = "bold";
+            cdr.style.textDecoration = "none";
+            cdr.style.fontWeight = "normal";
+            hanmierdun.style.textDecoration = "none";
+            hanmierdun.style.fontWeight = "normal";
+            jingshen.style.textDecoration = "none";
+            jingshen.style.fontWeight = "normal";
+            var newLink = '13cdr.html'+ "?pid=" + pid;
+            $("#iframe_contents").attr("src", newLink);
+        }
+
+        hanmierdun.onclick = function() {
+            renzhijiantui.style.textDecoration = "none";
+            renzhijiantui.style.fontWeight = "normal";
+            renzhibianhuajia.style.textDecoration = "none";
+            renzhibianhuajia.style.fontWeight = "normal";
+            richang.style.textDecoration = "none";
+            richang.style.fontWeight = "normal";
+            jianmingjingshen.style.textDecoration = "none";
+            jianmingjingshen.style.fontWeight = "normal";
+            mengtelier.style.textDecoration = "none";
+            mengtelier.style.fontWeight = "normal";
+            renzhiyu.style.textDecoration = "none";
+            renzhiyu.style.fontWeight = "normal";
+            cdr.style.textDecoration = "none";
+            cdr.style.fontWeight = "normal";
+            hanmierdun.style.textDecoration = "underline";
+            hanmierdun.style.fontWeight = "bold";
+            jingshen.style.textDecoration = "none";
+            jingshen.style.fontWeight = "normal";
+            var newLink = '11hanmierdun.html'+ "?pid=" + pid;
+            $("#iframe_contents").attr("src", newLink);
+        }
+
+        jingshen.onclick = function() {
+            renzhijiantui.style.textDecoration = "none";
+            renzhijiantui.style.fontWeight = "normal";
+            renzhibianhuajia.style.textDecoration = "none";
+            renzhibianhuajia.style.fontWeight = "normal";
+            richang.style.textDecoration = "none";
+            richang.style.fontWeight = "normal";
+            jianmingjingshen.style.textDecoration = "none";
+            jianmingjingshen.style.fontWeight = "normal";
+            mengtelier.style.textDecoration = "none";
+            mengtelier.style.fontWeight = "normal";
+            renzhiyu.style.textDecoration = "none";
+            renzhiyu.style.fontWeight = "normal";
+            cdr.style.textDecoration = "none";
+            cdr.style.fontWeight = "normal";
+            hanmierdun.style.textDecoration = "none";
+            hanmierdun.style.fontWeight = "normal";
+            jingshen.style.textDecoration = "underline";
+            jingshen.style.fontWeight = "bold";
+            var newLink = '12jingshen.html'+ "?pid=" + pid;
+            $("#iframe_contents").attr("src", newLink);
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>雷达图</title>
+</head>
+<body>
+
+<div id="sixStart" style="width:1323px; height:1300px;text-align: center;"></div>
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script type='text/javascript' src="js/echarts.js" charset='utf-8'></script>
+<script type="text/javascript">
+
+    $(function () {
+        var map = {
+            "pid": "1",
+        }
+        $.ajax({
+            url: "http://par.ict.ac.cn:10000/3/survey/list/find",
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify(map),
+            success: function (data) {
+                console.log("userlog",data)
+                if (data.status == 0) {
+                    for(i in result){
+                        console.info(result[i].data)
+                    }
+                }else {
+                    alert("错误")
+                }
+            }
+        });
+
+        myChart.setOption(option);
+    })
+    var myChart=echarts.init(document.getElementById('sixStart'));
+
+    var option = {
+        title : {
+            name:'标题'
+
+        },
+        tooltip : {
+            trigger: 'axis'
+        },
+        calculable : true,
+        polar : [
+            {
+                name: { show: true,textStyle:{fontSize:16,color:"#32cd32"}},
+                indicator : [
+                    {text : '认知能力自评', max  : 100},
+                    {text : '认知能力变化', max  : 100},
+                    {text : '匹兹堡睡眠', max  : 100},
+                    {text : '老年认知功能减退', max  : 100},
+                    {text : '认知功能变化', max  : 100},
+                    {text : 'ADL', max  : 100},
+                    {text : 'MMSE', max  : 100},
+                    {text : 'MoCA-B', max  : 100},
+                    {text : '认知域', max  : 100},
+                    {text : 'CDR', max  : 100},
+                    {text : 'HAMD', max  : 100},
+                    {text : 'NPI', max  : 100}
+                ],center : ['50%','50%'],
+                radius : 300 //半径，可放大放小雷达图
+            }
+        ],
+        series : [
+            {
+                name:'',
+                type: 'radar',//图表类型 radar为雷达图
+                itemStyle: {
+                    normal: {
+                        lineStyle: {
+                            color :"#87cefa",
+                            width : 2
+                        },
+                        areaStyle: {
+                            color:"#87cefa",
+                            type: 'default'
+                        }
+                    }
+                },
+                symbolSize :6,
+                data : [{
+                    value:[100,80,80,80,80,80]
+                }]
+            }
+        ]
+    };
+
+
+
+</script>
+</body>
+
+</html>

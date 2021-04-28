@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户</title>
+</head>
+<body>
+
+<form id="form1">
+    <h3>添加医生</h3>
+    姓 名:<input type="text" name="name"><br>
+    电 话:<input type="text" name="tel" maxlength="11" minlength="11"><br>
+    密 码:<input name="pwd"><br>
+    <button id="formSubmit" type="button">确定</button>
+</form>
+<p></p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>姓名</th>
+        <th>电话</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+
+    </tbody>
+</table>
+
+<!-- 全局js -->
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="http://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
+<!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">-->
+<script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.js"></script>
+
+
+<script type="text/javascript">
+    $(function () {
+        getData()
+        initForm()
+    })
+
+    function getData() {
+        var uid = $.cookie('uid');
+        $.ajax({
+            url: "http://par.ict.ac.cn:10000/3/users/list/pardoc/1",
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                console.log("userlog", data)
+//                if (data.status == 0) {
+                var list = data.result.data;
+                if (list) {
+                    var html = "";
+                    for (var i = 0; i < list.length; i++) {
+                        item = list[i];
+                        console.log("user item", item);
+                        html += '<tr>' +
+                            '<td><a class="J_menuItem">' + (i + 1) + '</a></td>' +
+                            '<td><a class="J_menuItem" href="userdoctortouser.html?uid=' + item.did + '">' + item.name.replace("dua:+86-", "") + '</a></td>' +
+                            '<td><a class="J_menuItem"href="userdoctortouser.html?uid=' + item.did + '">' + item.tel.replace("860", "") + '</a></td>' +
+                            '</tr>';
+                    }
+                    $("#tbody").html(html);
+                }
+//                }
+            }
+        });
+    }
+
+
+    function initForm() {
+        var uid = $.cookie('uid');
+        console.log("uid ", uid);
+        $("#formSubmit").on("click", function () {
+                var formData = $("#form1").serializeFormToJson();
+                var fields = {
+                    "name": formData.name,
+                    "tel": formData.tel,
+                    "sex": "N",
+                    "hospital": "医院",
+                    "bday": "19701010",
+                    "avatar": "",
+                }
+                var map = {
+                    "by": "tel",
+                    "kind": "N",
+                    "dua_id": "3",
+                    "ustr": "医生",
+                    "fields": fields,
+                    "pwd": md5(formData.pwd),
+                    "tel": formData.tel,
+                    "name": "医生",
+                    "utable": "pardoc",
+                    "doc_uid": "105",
+                }
+
+                console.log(JSON.stringify(map));
+                $.ajax({
+                    url: "http://par.ict.ac.cn:10000/3/users",
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    data: JSON.stringify(map),
+                    success: function (data) {
+                        console.log("userlog", data)
+                        if (data.status == 1) {
+
+                            location.reload();
+//                    window.history.go(-1)
+                            console.info("用户添加成功", data);
+//                            window.location.href = "zhuye.html"
+                        } else {
+                            alert(data.reason)
+                        }
+                    }
+                });
+                return false;
+            }
+        )
+    }
+
+</script>
+</body>
+</html>

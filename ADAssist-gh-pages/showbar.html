@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> - Morris.js图表</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+
+    <!-- orris -->
+    <link href="css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+</head>
+<body>
+<div class="row">
+<div class="col-sm-6">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>柱状图</h5>
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="graph_morris.html#">
+                    <i class="fa fa-wrench"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="graph_morris.html#">选项1</a>
+                    </li>
+                    <li><a href="graph_morris.html#">选项2</a>
+                    </li>
+                </ul>
+                <a class="close-link">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <div id="morris-bar-chart"></div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- 全局js -->
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
+
+<!-- Morris -->
+<script src="js/plugins/morris/raphael-2.1.0.min.js"></script>
+<script src="js/plugins/morris/morris.js"></script>
+
+<!-- 自定义js -->
+<script src="js/content.js?v=1.0.0"></script>
+<script type="text/javascript">
+    $(function () {
+        Morris.Bar({
+            element: 'morris-bar-chart',
+            data: [{
+                y: '2006',
+                a: 60
+
+            }, {
+                y: '2007',
+                a: 75
+
+            }, {
+                y: '2008',
+                a: 50
+
+            }, {
+                y: '2009',
+                a: 75
+
+            }, {
+                y: '2010',
+                a: 50
+
+            }, {
+                y: '2011',
+                a: 75
+
+            }, {
+                y: '2012',
+                a: 100
+
+            }],
+            xkey: 'y',
+            ykeys: ['a', 'b'],
+            labels: ['A系列', 'B系列'],
+            hideHover: 'auto',
+            resize: true,
+            barColors: ['#1ab394', '#cacaca'],
+        });});
+</script>
+
+</body>
+</html>

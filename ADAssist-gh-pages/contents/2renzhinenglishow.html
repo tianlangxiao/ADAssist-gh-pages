@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>认知能力自评表show</title>
+</head>
+<body>
+<h2 id="pname"></h2>
+<ol>
+    <li>
+        <p>判断力出现问题（在解决日常生活问题、经济问题有困难，如不会算帐了，做出的决定经常出错；辨不清方向或容易迷路。）</p>
+        <p class="result"></p>
+    </li>
+    <li>
+        <p>缺乏兴趣、爱好了，活动减少了。比如：几乎整天和衣躺着看电视；平时讨厌外出，常闷在家里，身体懒得动，无精打采。</p>
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>不断重复同一件事。比如：总是问相同的问题，一句话重复多遍等；</p>
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>学习使用某些日常工具或者家用电器（比如遥控器、微波炉等）有困难</p>
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>记不清当前月份或者年份</p>
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>个人经济财产掌控困难（忘了如何使用存折、忘了付水、电账单等）</p>
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>记不住和别人的约定。比如约好的聚会，计划去拜访好友也会忘了 </p>
+        <p class="result"></p>
+    </li>
+    <li>
+        <p>日常记忆和思考能力有问题。比如自己放置的东西经常找不着；经常忘了服药；想不起熟人的名字；忘记要买的东西；忘记看过的电视,报纸、书籍的主要内容；与别人谈话时，无法表达自己的意思等等</p>
+        <p class="result"></p>
+
+    </li>
+</ol>
+
+<!-- 全局js -->
+<script src="../js/jquery.min.js?v=2.1.4"></script>
+<script src="http://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/bootstrap.min.js?v=3.3.6"></script>
+<!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">-->
+
+<script type="text/javascript">
+    $(function () {
+        getData();
+    })
+
+    function getData() {
+        var pn = $.cookie('pname');
+        $("#pname").text(pn);
+
+        var param = getRequest();
+        var pid = param.pid;
+
+        $.ajax({
+            url: "http://par.ict.ac.cn:10000/3/survey/"+ pid,
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                if (data.status == 0) {
+                    var result = JSON.parse(data.result.data).paramMap;
+//                   var result=data.result.data;
+                    console.info(result);
+                    var resultArr = Object.values(result);
+                    for (var i in resultArr) {
+                        console.info(resultArr[i]);
+                        switch (resultArr[i]){
+                            case "0":
+                                $(".result").eq(i).html("无法识别");
+                                break
+                            case "-1":
+                                $(".result").eq(i).html("否");
+                                break
+                            case "1":
+                                $(".result").eq(i).html("是");
+                                break
+                            default:
+                                $(".result").eq(i).html(resultArr[i]);
+                                break
+                        }
+
+                    }
+                } else {
+                    alert(data.reason);
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

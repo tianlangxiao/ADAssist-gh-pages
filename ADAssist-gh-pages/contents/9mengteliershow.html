@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>蒙特利尔认知评估表show</title>
+</head>
+<body>
+<h2 id="pname"></h2>
+<ol>
+    <li>
+        <p>连线</p>
+        <p class="result"></p>
+    </li>
+    <li>
+        <p>词语流畅性</p>
+        <p class="result"></p>
+    </li>
+
+    <li>
+        <p>时间(±2小时)</p>
+
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>星期几</p>
+
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>月份</p>
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>年份</p>
+
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>地点</p>
+
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>城市</p>
+
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>抽象-1</p>
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>抽象-2</p>
+
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>抽象-3</p>
+
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>计算</p>
+
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>延时记忆-1</p>
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>延时记忆-2</p>
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>延时记忆-3</p>
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>延时记忆-4</p>
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>延时记忆-5</p>
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>视知觉</p>
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>命名-1</p>
+        <p class="result"></p>
+    </li>
+    <li>
+        <p>命名-2</p>
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>命名-3</p>
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>命名-4</p>
+        <p class="result"></p>
+    </li>
+    <li>
+        <p>注意-1</p>
+        <p class="result"></p>
+
+    </li>
+    <li>
+        <p>注意-2</p>
+        <p class="result"></p>
+
+    </li>
+
+</ol>
+
+<!-- 全局js -->
+<script src="../js/jquery.min.js?v=2.1.4"></script>
+<script src="http://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/bootstrap.min.js?v=3.3.6"></script>
+<script type="text/javascript">
+    $(function () {
+        getData()
+    })
+
+    function getData() {
+        var pn = $.cookie('pname');
+        $("#pname").text(pn);
+
+        var param = getRequest();
+        var pid = param.pid;
+        var count=param.count;
+        $.ajax({
+            url: "http://par.ict.ac.cn:10000/3/survey/" + pid + "/9",
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                if (data.status == 0) {
+                    var list = data.result;
+                    var result = JSON.parse(list[count].data).paramMap;
+                    var resultArr = Object.values(result);
+                    for (var i in resultArr) {
+                        $(".result").eq(i).html(resultArr[i])
+                    }
+                } else {
+                    alert(data.reason);
+                }
+            }
+        });
+    }
+</script>
+
+
+</body>
+</html>

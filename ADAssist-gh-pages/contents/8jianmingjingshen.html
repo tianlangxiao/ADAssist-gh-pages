@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简明精神状态检查表</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link href="../css/forScale.css" rel="stylesheet">
+    <link href="../css/scale_style.css" rel="stylesheet">
+</head>
+<body>
+<h2 id="pname"></h2>
+<form id="form1" class="timu">
+    <p>填写时间:</p>
+    <input type="date" id="date" name="date">
+
+    <ol>
+
+        <h4>定向力：现在我要问您一些问题，多数都很简单，请您认真回答</h4>
+        <li><p>今天是几号?</p>
+
+            <input class="radio_type" type="radio" name="mmse1" value="1">对
+            <input class="radio_type" type="radio" name="mmse1" value="-1">错
+            <input class="radio_type" type="radio" name="mmse1" value="0" >拒绝回答
+
+        </li>
+        <li><p>今年是哪一年?</p>
+
+            <input class="radio_type" type="radio" name="mmse2" value="1">对
+            <input class="radio_type" type="radio" name="mmse2" value="-1">错
+            <input class="radio_type" type="radio" name="mmse2" value="0" >拒绝回答
+
+        </li>
+        <li><p>现在是几月?</p>
+
+            <input class="radio_type" type="radio" name="mmse3" value="1">对
+            <input class="radio_type" type="radio" name="mmse3" value="-1">错
+            <input class="radio_type" type="radio" name="mmse3" value="0" >拒绝回答
+
+        </li>
+        <li><p>今天是星期几?</p>
+
+            <input class="radio_type" type="radio" name="mmse4" value="1">对
+            <input class="radio_type" type="radio" name="mmse4" value="-1">错
+            <input class="radio_type" type="radio" name="mmse4" value="0" >拒绝回答
+
+        </li>
+        <li><p>现在是什么季节?</p>
+            <p>允许的回答：12月：秋或冬，3月：冬或春，6月：春或夏；9月：夏或秋</p>
+
+            <input class="radio_type" type="radio" name="mmse5" value="1">对
+            <input class="radio_type" type="radio" name="mmse5" value="-1">错
+            <input class="radio_type" type="radio" name="mmse5" value="0" >拒绝回答
+
+        </li>
+        <li><p>这里是什么地方?</p>
+
+            <input class="radio_type" type="radio" name="mmse6" value="1">对
+            <input class="radio_type" type="radio" name="mmse6" value="-1">错
+            <input class="radio_type" type="radio" name="mmse6" value="0" >拒绝回答
+
+        </li>
+        <li><p>这家医院的名字是什么?</p>
+
+            <input class="radio_type" type="radio" name="mmse7" value="1">对
+            <input class="radio_type" type="radio" name="mmse7" value="-1">错
+            <input class="radio_type" type="radio" name="mmse7" value="0" >拒绝回答
+
+        </li>
+        <li><p>我们现在在几层楼?</p>
+
+            <input class="radio_type" type="radio" name="mmse8" value="1">对
+            <input class="radio_type" type="radio" name="mmse8" value="-1">错
+            <input class="radio_type" type="radio" name="mmse8" value="0" >拒绝回答
+
+        </li>
+        <li><p>我们现在在哪个城市?</p>
+
+            <input class="radio_type" type="radio" name="mmse9" value="1">对
+            <input class="radio_type" type="radio" name="mmse9" value="-1">错
+            <input class="radio_type" type="radio" name="mmse9" value="0" >拒绝回答
+
+        </li>
+        <li><p>我们现在在哪个区?</p>
+
+            <input class="radio_type" type="radio" name="mmse10" value="1">对
+            <input class="radio_type" type="radio" name="mmse10" value="-1">错
+            <input class="radio_type" type="radio" name="mmse10" value="0" >拒绝回答
+
+        </li>
+        <br><h4>即刻记忆：现在我告诉您三种东西的名称，我说完后请您重复一遍（回答出的词语正确即可，顺序不要求）</h4>
+        <li><p>复述：皮球</p>
+
+            <input class="radio_type" type="radio" name="mmse11" value="1">对
+            <input class="radio_type" type="radio" name="mmse11" value="-1">错
+            <input class="radio_type" type="radio" name="mmse11" value="0" >拒绝回答
+
+        </li>
+        <li><p>复述：国旗</p>
+
+            <input class="radio_type" type="radio" name="mmse12" value="1">对
+            <input class="radio_type" type="radio" name="mmse12" value="-1">错
+            <input class="radio_type" type="radio" name="mmse12" value="0" >拒绝回答
+
+        </li>
+        <li><p>复述：树木</p>
+
+            <input class="radio_type" type="radio" name="mmse13" value="1">对
+            <input class="radio_type" type="radio" name="mmse13" value="-1">错
+            <input class="radio_type" type="radio" name="mmse13" value="0" >拒绝回答
+
+        </li>
+        <br><h4>注意力和计算力：现在请您算一算，从100 中减去7，然后从所得的数算下去，请您将每减一个7 后的答案告诉我，直到我说“停”为止，依次减5次，减对几次给几分，如果前面减错，不影响后面评分，例如：{100-7
+            93（错，本次不得分），92-7 85（对，本次得1分），85-7 78（对，本次得1 分），78-7 71（对，本次得1 分），71-7 65（错，本次不得分），故本项共得分为3 分。}</h4>
+        <li><p>第一次计算（93）</p>
+
+            <input class="radio_type" type="radio" name="mmse14" value="1">对
+            <input class="radio_type" type="radio" name="mmse14" value="-1">错
+            <input class="radio_type" type="radio" name="mmse14" value="0" >拒绝回答
+
+        </li>
+        <li><p>第二次计算（86）</p>
+            <input class="radio_type" type="radio" name="mmse15" value="1">对
+            <input class="radio_type" type="radio" name="mmse15" value="-1">错
+            <input class="radio_type" type="radio" name="mmse15" value="0" >拒绝回答
+
+        </li>
+        <li><p>第三次计算（79）</p>
+
+            <input class="radio_type" type="radio" name="mmse16" value="1">对
+            <input class="radio_type" type="radio" name="mmse16" value="-1">错
+            <input class="radio_type" type="radio" name="mmse16" value="0" >拒绝回答
+
+        </li>
+        <li><p>第四次计算（72）</p>
+            <input class="radio_type" type="radio" name="mmse17" value="1">对
+            <input class="radio_type" type="radio" name="mmse17" value="-1">错
+            <input class="radio_type" type="radio" name="mmse17" value="0" >拒绝回答
+
+        </li>
+        <li><p>第五次计算（65）</p>
+
+            <input class="radio_type" type="radio" name="mmse18" value="1">对
+            <input class="radio_type" type="radio" name="mmse18" value="-1">错
+            <input class="radio_type" type="radio" name="mmse18" value="0" >拒绝回答
+
+        </li>
+        <br><h4>回忆：现在请您说出刚才我让您记住的是哪三种东西（回答出的词语正确即可，顺序不要求）</h4>
+        <li><p>皮球</p>
+
+            <input class="radio_type" type="radio" name="mmse19" value="1">对
+            <input class="radio_type" type="radio" name="mmse19" value="-1">错
+            <input class="radio_type" type="radio" name="mmse19" value="0" >拒绝回答
+
+        </li>
+        <li><p>国旗</p>
+
+            <input class="radio_type" type="radio" name="mmse20" value="1">对
+            <input class="radio_type" type="radio" name="mmse20" value="-1">错
+            <input class="radio_type" type="radio" name="mmse20" value="0" >拒绝回答
+
+        </li>
+        <li><p>树木</p>
+
+            <input class="radio_type" type="radio" name="mmse21" value="1">对
+            <input class="radio_type" type="radio" name="mmse21" value="-1">错
+            <input class="radio_type" type="radio" name="mmse21" value="0" >拒绝回答
+
+        </li>
+        <br><h4>命名：请问这是什么？</h4>
+        <li><p>铅笔</p>
+
+            <input class="radio_type" type="radio" name="mmse22" value="1">对
+            <input class="radio_type" type="radio" name="mmse22" value="-1">错
+            <input class="radio_type" type="radio" name="mmse22" value="0" >拒绝回答
+
+        </li>
+        <li><p>手表</p>
+
+            <input class="radio_type" type="radio" name="mmse23" value="1">对
+            <input class="radio_type" type="radio" name="mmse23" value="-1">错
+            <input class="radio_type" type="radio" name="mmse23" value="0" >拒绝回答
+
+        </li>
+        <br><h4>复述：请您跟我说</h4>
+        <li><p>四十四只石狮子</p>
+
+            <input class="radio_type" type="radio" name="mmse24" value="1">对
+            <input class="radio_type" type="radio" name="mmse24" value="-1">错
+            <input class="radio_type" type="radio" name="mmse24" value="0" >拒绝回答
+
+        </li>
+        <br><h4>3步指令：我给您一张纸，请您按我说的去做。请用您的右手拿起这张纸，再用双手将它对折，然后放在您的大腿上。</h4>
+        <li><p>患者用右手拿纸</p>
+
+            <input class="radio_type" type="radio" name="mmse25" value="1">对
+            <input class="radio_type" type="radio" name="mmse25" value="-1">错
+            <input class="radio_type" type="radio" name="mmse25" value="0" >拒绝回答
+
+        </li>
+        <li><p>患者将纸对折</p>
+
+            <input class="radio_type" type="radio" name="mmse26" value="1">对
+            <input class="radio_type" type="radio" name="mmse26" value="-1">错
+            <input class="radio_type" type="radio" name="mmse26" value="0" >拒绝回答
+
+        </li>
+        <li><p>患者放在大腿上</p>
+
+            <input class="radio_type" type="radio" name="mmse27" value="1">对
+            <input class="radio_type" type="radio" name="mmse27" value="-1">错
+            <input class="radio_type" type="radio" name="mmse27" value="0" >拒绝回答
+
+        </li>
+        <br><h4>阅读：请您念一念这句话，并按这句话的意思去做（如患者为文盲，该项评为0 分）</h4>
+        <li><p>患者闭上了闭眼睛</p>
+
+            <input class="radio_type" type="radio" name="mmse28" value="1">对
+            <input class="radio_type" type="radio" name="mmse28" value="-1">错
+            <input class="radio_type" type="radio" name="mmse28" value="0" >拒绝回答
+
+        </li>
+        <br><h4>表达：请您写一个完整的句子（句子要有主语、谓语，能表达一定的意思）（如患者为文盲，该项评为0 分）</h4>
+        <li><p>患者写了一个正确完整的句子</p>
+
+            <input class="radio_type" type="radio" name="mmse29" value="1">对
+            <input class="radio_type" type="radio" name="mmse29" value="-1">错
+            <input class="radio_type" type="radio" name="mmse29" value="0" >拒绝回答
+
+        </li>
+        <br><h4>绘图：请您照着这个样子把它画下来（图要有10 个角和2 条相交的直线）</h4>
+        <li><p>按样作图</p>
+            <img src="../img/jianyi30.png" alt="绘图"><br>
+            
+            <input class="radio_type" type="radio" name="mmse30" value="1">对
+            <input class="radio_type" type="radio" name="mmse30" value="-1">错
+            <input class="radio_type" type="radio" name="mmse30" value="0" >拒绝回答
+
+        </li>
+    </ol>
+    <br>
+    <button id="formSubmit" type="submit">提交</button>
+    <br>
+    <br>
+    <br>
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/scale_style.js"></script>
+
+<script type="text/javascript">
+
+    var formType = 8;
+    var tid = getRequest().tid;
+    var pid = getRequest().pid;
+
+    $(function () {
+
+        var pn = $.cookie('pname');
+        $("#pname").text(pn);
+
+        let formID = "#form1";
+        let autoUploadTime = 20 * 1000;
+
+        let init = () => {
+            initData(tid, pid, formType, formID);
+
+            window.setInterval(function () {
+                // console.info("数据次数:")
+                initForm(tid, pid, formType, formID);
+            }, autoUploadTime);
+        }
+
+        if (pid) {
+            getUnfinished(pid, formType, (lastTid) => {
+                if (lastTid) {
+                    tid = lastTid;
+                }
+            })
+        }
+
+        if (tid) {
+            getData(tid, formType, formID, (data) => {
+                console.debug(data);
+                pid = data.pid;
+                init();
+            });
+        } else {
+            getId(pid, formType, formID, (newTid) => {
+                console.debug('Get new tid: ' + newTid);
+                tid = newTid
+                init();
+            });
+        };
+    });
+
+</script>
+
+</body>
+</html>

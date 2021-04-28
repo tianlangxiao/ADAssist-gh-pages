@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <!-- Google Chrome Frame也可以让IE用上Chrome的引擎: -->
+    <meta name="renderer" content="webkit">
+    <!--国产浏览器高速模式-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="AD助手" />
+    <!-- 作者 -->
+    <meta name="revised" content="AD助手.v1, 2019/12/15" />
+    <!-- 定义页面的最新版本 -->
+    <meta name="description" content="网站简介" />
+    <!-- 网站简介 -->
+    <meta name="keywords" content="搜索关键字，以半角英文逗号隔开" />
+    <title>AD助手</title>
+
+    <!-- 公共样式 开始 -->
+    <link rel="stylesheet" type="text/css" href="../css/base.css">
+    <link rel="stylesheet" type="text/css" href="../css/iconfont.css">
+    <script type="text/javascript" src="../framework/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../layui/css/layui.css">
+    <script type="text/javascript" src="../layui/layui.js"></script>
+    <!-- 滚动条插件 -->
+    <link rel="stylesheet" type="text/css" href="../css/jquery.mCustomScrollbar.css">
+    <script src="../framework/jquery-ui-1.10.4.min.js"></script>
+    <script src="../framework/jquery.mousewheel.min.js"></script>
+    <script src="../framework/jquery.mCustomScrollbar.min.js"></script>
+    <script src="../framework/cframe.js"></script><!-- 仅供所有子页面使用 -->
+    <!-- 公共样式 结束 -->
+
+</head>
+
+<body>
+    <div style="text-align: right;" class="layui-form-pane">
+        <div class="layui-inline">
+            <label class="layui-form-label" style="height: 30px; line-height: 15px; ">搜索姓名：</label>
+            <div class="layui-input-inline">
+                <input id="search-value" type="text" placeholder="输入搜索内容" name="search"
+                    class="layui-input" style="height: 30px; line-height: 15px;"
+                    onkeypress="if(event.keyCode===13){searchName()}">
+            </div>
+            <button type="button" class="layui-btn layui-btn-sm layui-btn-primary" onclick="searchName()">
+                搜索
+            </button>
+        </div>
+    </div>
+
+    <table class="layui-table">
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th>姓名</th>
+            <th>ID</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>查看数据</th>
+            <th>数据统计</th>
+        </tr>
+        </thead>
+        <tbody id="tbody"> </tbody>
+    </table>
+
+    <!-- 全局js -->
+    <script src="../js/jquery.min.js?v=2.1.4"></script>
+    <script src="http://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            getData();
+        })
+
+        function getData() {
+            var uid = $.cookie('uid');
+            console.log("http://par.ict.ac.cn:10000/3/users/patsofdoc/" + uid + "/1000");
+            $.ajax({
+                url: "http://par.ict.ac.cn:10000/3/users/patsofdoc/" + uid + "/1000",
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    console.log("userlog", data)
+                    var list = data.result;
+                    if (list) {
+                        var html = "";
+                        for (var i = 0; i < list.length; i++) {
+                            item = list[i];
+                            var sex;
+                            switch (item.sex){
+                                case "F":
+                                    sex="男";
+                                    break;
+                                case "M":
+                                    sex="女";
+                                    break;
+                            }
+                            console.log("user item", item);
+                            html += '<tr>' +
+                                '<td><a class="J_menuItem">' + (i + 1) + '</a></td>' +
+                                '<td><a class="J_menuItem">' + item.name + '</a></td>' +
+                                '<td><a class="J_menuItem">' + item.cnid + '</a></td>' +
+                                '<td><a class="J_menuItem">' + sex + '</a></td>' +
+                                '<td><a class="J_menuItem">' + item.bday + '</a></td>' +
+                                '<td><a class="layui-btn layui-btn-xs" href="zhuyeshow.html?pid=' + item.pid + '">' + "查看数据" + '</a></td> ' +
+                                '<td><a class="layui-btn layui-btn-xs" href="showbar.html?pid=' + item.pid + '">' + "数据统计" + '</a></td> ' +
+                                '</tr>';
+                        }
+                        $("#tbody").html(html);
+                    }
+                }
+            });
+        }
+
+        function searchName() {
+            let name = $("#search-value").val();
+            $("#tbody tr").each((idx, el) => {
+                if ($(el).find("td:nth-child(2)").text().includes(name)) {
+                    $(el).show();
+                } else {
+                    $(el).hide();
+                }
+            })
+        }
+
+    </script>
+</body>
+</html>

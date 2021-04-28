@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日常生活能力表(ADL)</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link href="../css/forScale.css" rel="stylesheet">
+    <link href="../css/scale_style.css" rel="stylesheet">
+</head>
+<body>
+<h2 id="pname"></h2>
+<p>评分标准：当患者从来不做，但能够胜任时评定为1；做起来有困难，但不需要别人帮助评定为2；但做起来需要帮助无法完成评定为3，无法完成时评定为4。得分范围为20-80分，＞23分为日常生活能力下降。 </p>
+<form id="form1" class="timu">
+    <p>填写时间:</p>
+    <input type="date" id="date" name="date">
+
+    <ol>
+
+        <li><p>吃饭</p>
+
+            <input class="radio_type" type="radio" name="adl1" value="3">自己可以
+            <input class="radio_type" type="radio" name="adl1" value="2">有些困难
+            <input class="radio_type" type="radio" name="adl1" value="1">需要帮助 <input class="radio_type" type="radio"
+                                                                                     name="adl1" value="0">无法完成
+
+
+        </li>
+        <li><p>穿脱衣服</p>
+
+            <input class="radio_type" type="radio" name="adl2" value="3">自己可以
+            <input class="radio_type" type="radio" name="adl2" value="2">有些困难
+            <input class="radio_type" type="radio" name="adl2" value="1">需要帮助 <input class="radio_type" type="radio"
+                                                                                     name="adl2" value="0">无法完成
+
+        </li>
+        <li><p>洗漱</p>
+
+            <input class="radio_type" type="radio" name="adl3" value="3">自己可以
+            <input class="radio_type" type="radio" name="adl3" value="2">有些困难
+            <input class="radio_type" type="radio" name="adl3" value="1">需要帮助 <input class="radio_type" type="radio"
+                                                                                     name="adl3" value="0">无法完成
+
+        </li>
+        <li><p>上下床,坐下或站起</p>
+
+            <input class="radio_type" type="radio" name="adl4" value="3">自己可以
+            <input class="radio_type" type="radio" name="adl4" value="2">有些困难
+            <input class="radio_type" type="radio" name="adl4" value="1">需要帮助 <input class="radio_type" type="radio"
+                                                                                     name="adl4" value="0">无法完成
+
+        </li>
+        <li><p>室内走动</p>
+
+            <input class="radio_type" type="radio" name="adl5" value="3">自己可以
+            <input class="radio_type" type="radio" name="adl5" value="2">有些困难
+            <input class="radio_type" type="radio" name="adl5" value="1">需要帮助 <input class="radio_type" type="radio"
+                                                                                     name="adl5" value="0">无法完成
+
+        </li>
+        <li><p>上厕所</p>
+
+            <input class="radio_type" type="radio" name="adl6" value="3">自己可以
+            <input class="radio_type" type="radio" name="adl6" value="2">有些困难
+            <input class="radio_type" type="radio" name="adl6" value="1">需要帮助 <input class="radio_type" type="radio"
+                                                                                     name="adl6" value="0">无法完成
+
+        </li>
+        <li><p>大小便控制</p>
+
+            <input class="radio_type" type="radio" name="adl7" value="3">自己可以
+            <input class="radio_type" type="radio" name="adl7" value="2">有些困难
+            <input class="radio_type" type="radio" name="adl7" value="1">需要帮助 <input class="radio_type" type="radio"
+                                                                                     name="adl7" value="0">无法完成
+
+
+        </li>
+        <li><p>洗澡</p>
+
+            <input class="radio_type" type="radio" name="adl8" value="3">自己可以
+            <input class="radio_type" type="radio" name="adl8" value="2">有些困难
+            <input class="radio_type" type="radio" name="adl8" value="1">需要帮助 <input class="radio_type" type="radio"
+                                                                                     name="adl8" value="0">无法完成
+
+        </li>
+        <li><p>自己搭乘公共汽车(知道乘哪一路车,并能独自去)</p>
+
+            <input class="radio_type" type="radio" name="adl9" value="3">自己可以
+            <input class="radio_type" type="radio" name="adl9" value="2">有些困难
+            <input class="radio_type" type="radio" name="adl9" value="1">需要帮助 <input class="radio_type" type="radio"
+                                                                                     name="adl9" value="0">无法完成
+
+        </li>
+        <li><p>在住地附近活动</p>
+
+            <input class="radio_type" type="radio" name="adl10" value="3">自己可以
+            <input class="radio_type" type="radio" name="adl10" value="2">有些困难
+            <input class="radio_type" type="radio" name="adl10" value="1">需要帮助 <input class="radio_type" type="radio"
+                                                                                      name="adl10" value="0">无法完成
+
+        </li>
+        <li><p>自己做饭(包括洗切菜、生活、炒菜)</p>
+
+            <input class="radio_type" type="radio" name="adl11" value="3">自己可以
+            <input class="radio_type" type="radio" name="adl11" value="2">有些困难
+            <input class="radio_type" type="radio" name="adl11" value="1">需要帮助 <input class="radio_type" type="radio"
+                                                                                      name="adl11" value="0">无法完成
+
+        </li>
+        <li><p>吃药(按时并正确服药)</p>
+
+            <input class="radio_type" type="radio" name="adl12" value="3">自己可以
+            <input class="radio_type" type="radio" name="adl12" value="2">有些困难
+            <input class="radio_type" type="radio" name="adl12" value="1">需要帮助 <input class="radio_type" type="radio"
+                                                                                      name="adl12" value="0">无法完成
+
+        </li>
+        <li><p>一般轻家务(扫地、擦桌)</p>
+
+            <input class="radio_type" type="radio" name="adl13" value="3">自己可以
+            <input class="radio_type" type="radio" name="adl13" value="2">有些困难
+            <input class="radio_type" type="radio" name="adl13" value="1">需要帮助 <input class="radio_type" type="radio"
+                                                                                      name="adl13" value="0">无法完成
+
+        </li>
+        <li><p>复杂家务(擦地/擦窗、搬东西等)</p>
+
+            <input class="radio_type" type="radio" name="adl14" value="3">自己可以
+            <input class="radio_type" type="radio" name="adl14" value="2">有些困难
+            <input class="radio_type" type="radio" name="adl14" value="1">需要帮助 <input class="radio_type" type="radio"
+                                                                                      name="adl14" value="0">无法完成
+
+        </li>
+        <li><p>洗自己的衣服</p>
+
+            <input class="radio_type" type="radio" name="adl15" value="3">自己可以
+            <input class="radio_type" type="radio" name="adl15" value="2">有些困难
+            <input class="radio_type" type="radio" name="adl15" value="1">需要帮助 <input class="radio_type" type="radio"
+                                                                                      name="adl15" value="0">无法完成
+
+        </li>
+        <li><p>剪脚趾甲</p>
+
+            <input class="radio_type" type="radio" name="adl16" value="3">自己可以
+            <input class="radio_type" type="radio" name="adl16" value="2">有些困难
+            <input class="radio_type" type="radio" name="adl16" value="1">需要帮助 <input class="radio_type" type="radio"
+                                                                                      name="adl16" value="0">无法完成
+
+        </li>
+        <li><p>购物</p>
+
+            <input class="radio_type" type="radio" name="adl17" value="3">自己可以
+            <input class="radio_type" type="radio" name="adl17" value="2">有些困难
+            <input class="radio_type" type="radio" name="adl17" value="1">需要帮助 <input class="radio_type" type="radio"
+                                                                                      name="adl17" value="0">无法完成
+
+        </li>
+        <li><p>使用电话(必须会拨号)</p>
+
+            <input class="radio_type" type="radio" name="adl18" value="3">自己可以
+            <input class="radio_type" type="radio" name="adl18" value="2">有些困难
+            <input class="radio_type" type="radio" name="adl18" value="1">需要帮助 <input class="radio_type" type="radio"
+                                                                                      name="adl18" value="0">无法完成
+
+        </li>
+        <li><p>管理个人钱财(买东西、找零以及算钱等)</p>
+
+            <input class="radio_type" type="radio" name="adl19" value="3">自己可以
+            <input class="radio_type" type="radio" name="adl19" value="2">有些困难
+            <input class="radio_type" type="radio" name="adl19" value="1">需要帮助 <input class="radio_type" type="radio"
+                                                                                      name="adl19" value="0">无法完成
+
+        </li>
+        <li><p>独自在家(能独自在家呆一天)</p>
+
+            <input class="radio_type" type="radio" name="adl20" value="3">自己可以
+            <input class="radio_type" type="radio" name="adl20" value="2">有些困难
+            <input class="radio_type" type="radio" name="adl20" value="1">需要帮助 <input class="radio_type" type="radio"
+                                                                                      name="adl20" value="0">无法完成
+
+        </li>
+    </ol>
+    <button id="formSubmit" type="submit">提交</button>
+    <br>
+    <br>
+    <br>
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/scale_style.js"></script>
+
+<script type="text/javascript">
+
+    var formType = 7;
+    var tid = getRequest().tid;
+    var pid = getRequest().pid;
+
+    $(function () {
+        var pn = $.cookie('pname');
+        $("#pname").text(pn);
+
+        let formID = "#form1";
+        let autoUploadTime = 20 * 1000;
+
+        let init = () => {
+            initData(tid, pid, formType, formID);
+
+            window.setInterval(function () {
+                // console.info("数据次数:")
+                initForm(tid, pid, formType, formID);
+            }, autoUploadTime);
+        }
+
+        if (pid) {
+            getUnfinished(pid, formType, (lastTid) => {
+                if (lastTid) {
+                    tid = lastTid;
+                }
+            })
+        }
+
+        if (tid) {
+            getData(tid, formType, formID, (data) => {
+                console.debug(data);
+                pid = data.pid;
+                init();
+            });
+        } else {
+            getId(pid, formType, formID, (newTid) => {
+                console.debug('Get new tid: ' + newTid);
+                tid = newTid
+                init();
+            });
+        };
+    });
+
+</script>
+</body>
+</html>

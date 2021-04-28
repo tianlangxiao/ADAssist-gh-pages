@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简明精神状态检查表show</title>
+</head>
+<body>
+<h2 id="pname"></h2>
+<ol>
+    <h2>定向力：现在我要问您一些问题，多数都很简单，请您认真回答</h2>
+    <li><p>今天是几号?</p>
+        <p class="result"></p>
+    </li>
+    <li><p>今年是哪一年?</p>
+
+        <p class="result"></p>
+
+    </li>
+    <li><p>现在是几月?</p>
+
+        <p class="result"></p>
+    </li>
+    <li><p>今天是星期几?</p>
+
+        <p class="result"></p>
+
+    </li>
+    <li><p>现在是什么季节?</p>
+        <p>允许的回答：12月：秋或冬，3月：冬或春，6月：春或夏；9月：夏或秋</p>
+        <p class="result"></p>
+    </li>
+    <li><p>这里是什么地方?</p>
+        <p class="result"></p>
+
+    </li>
+    <li><p>这家医院的名字是什么?</p>
+
+        <p class="result"></p>
+
+    </li>
+    <li><p>我们现在在几层楼?</p>
+        <p class="result"></p>
+
+    </li>
+    <li><p>我们现在在哪个城市?</p>
+        <p class="result"></p>
+
+    </li>
+    <li><p>我们现在在哪个区?</p>
+        <p class="result"></p>
+    </li>
+    <h2>即刻记忆：现在我告诉您三种东西的名称，我说完后请您重复一遍（回答出的词语正确即可，顺序不要求）</h2>
+    <li><p>复述：皮球</p>
+        <p class="result"></p>
+    </li>
+    <li><p>复述：国旗</p>
+        <p class="result"></p>
+    </li>
+    <li><p>复述：树木</p>
+        <p class="result"></p>
+    </li>
+    <h2>注意力和计算力：现在请您算一算，从100 中减去7，然后从所得的数算下去，请您将每减一个7 后的答案告诉我，直到我说“停”为止，依次减5次，减对几次给几分，如果前面减错，不影响后面评分，例如：{100-7
+        92（错，本次不得分），92-7 85（对，本次得1分），85-7 78（对，本次得1 分），78-7 71（对，本次得1 分），71-7 65（错，本次不得分），故本项共得分为3 分。}</h2>
+    <li><p>第一次计算</p>
+
+        <p class="result"></p>
+    </li>
+    <li><p>第二次计算</p>
+        <p class="result"></p>
+    </li>
+    <li><p>第三次计算</p>
+        <p class="result"></p>
+    </li>
+    <li><p>第四次计算</p>
+        <p class="result"></p>
+    </li>
+    <li><p>第五次计算</p>
+        <p class="result"></p>
+    </li>
+    <h2>回忆：现在请您说出刚才我让您记住的是哪三种东西（回答出的词语正确即可，顺序不要求）</h2>
+    <li><p>皮球</p>
+        <p class="result"></p>
+    </li>
+    <li><p>国旗</p>
+        <p class="result"></p>
+    </li>
+    <li><p>树木</p>
+        <p class="result"></p>
+    </li>
+    <h2>命名：请问这是什么？</h2>
+    <li><p>铅笔</p>
+        <p class="result"></p>
+    </li>
+    <li><p>手表</p>
+        <p class="result"></p>
+    </li>
+    <h2>复述：请您跟我说</h2>
+    <li><p>四十四只石狮子</p>
+        <p class="result"></p>
+    </li>
+    <h2>3步指令：我给您一张纸，请您按我说的去做。请用您的右手拿起这张纸，再用双手将它对折，然后放在您的大腿上。</h2>
+    <li><p>患者用右手拿纸</p>
+        <p class="result"></p>
+    </li>
+    <li><p>患者将纸对折</p>
+        <p class="result"></p>
+    </li>
+    <li><p>患者放在大腿上</p>
+        <p class="result"></p>
+    </li>
+    <h2>阅读：请您念一念这句话，并按这句话的意思去做（如患者为文盲，该项评为0 分）</h2>
+    <li><p>患者闭上了闭眼睛</p>
+        <p class="result"></p>
+    </li>
+    <h2>表达：请您写一个完整的句子（句子要有主语、谓语，能表达一定的意思）（如患者为文盲，该项评为0 分）</h2>
+    <li><p>患者写了一个正确完整的句子</p>
+        <p class="result"></p>
+    </li>
+    <h2>绘图：请您照着这个样子把它画下来（图要有10 个角和2 条相交的直线）</h2>
+    <li><p>按样作图</p>
+        <p class="result"></p>
+    </li>
+</ol>
+
+
+<!-- 全局js -->
+<script src="../js/jquery.min.js?v=2.1.4"></script>
+<script src="http://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/bootstrap.min.js?v=3.3.6"></script>
+<script type="text/javascript">
+    $(function () {
+        getData()
+    })
+
+    function getData() {
+        var pn = $.cookie('pname');
+        $("#pname").text(pn);
+
+        var param = getRequest();
+        var pid = param.pid;
+        var count = param.count;
+        $.ajax({
+            url: "http://par.ict.ac.cn:10000/3/survey/" + pid + "/8",
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                if (data.status == 0) {
+                    var list = data.result;
+                    var result = JSON.parse(list[count].data).paramMap;
+                    var resultArr = Object.values(result);
+                    for (var i in resultArr) {
+                        $(".result").eq(i).html(resultArr[i])
+                    }
+                } else {
+                    alert(data.reason);
+                }
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
